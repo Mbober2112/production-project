@@ -9,8 +9,11 @@ interface ThemeSwitcherProps {
   className?: string;
 }
 
+import { useTranslation } from "react-i18next";
+
 export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
   const { theme, toggleTheme } = useTheme();
+  const { t } = useTranslation();
 
   return (
     <Button
@@ -20,12 +23,12 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
       {theme === Theme.DARK ? (
         <>
           <LightThemeIcon />
-          Go light
+          {t("goLightTheme")}
         </>
       ) : (
         <>
           <DarkThemeIcon />
-          Go dark
+          {t("goDarkTheme")}
         </>
       )}
     </Button>
