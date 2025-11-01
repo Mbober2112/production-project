@@ -3,5 +3,6 @@
   "goLightTheme": "Go light",
   "goDarkTheme": "Go dark",
   "language": "Русский",
-  "main": "Main"
+  "main": "Main",
+  "pageNotFound": "Page not found"
 }

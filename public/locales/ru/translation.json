@@ -3,5 +3,6 @@
   "goLightTheme": "Светлая тема",
   "goDarkTheme": "Темная тема",
   "language": "English",
-  "main": "Главная"
+  "main": "Главная",
+  "pageNotFound": "Страница не найдена"
 }
