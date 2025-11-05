@@ -4,5 +4,8 @@
   "goDarkTheme": "Темная тема",
   "language": "English",
   "main": "Главная",
-  "pageNotFound": "Страница не найдена"
+  "pageNotFound": "Страница не найдена",
+  "somethingWentWrong": "Что-то пошло не так...",
+  "reloadPage": "Обновить страницу",
+  "throwError": "Выдать ошибку"
 }

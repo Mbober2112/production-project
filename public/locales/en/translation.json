@@ -4,5 +4,8 @@
   "goDarkTheme": "Go dark",
   "language": "Русский",
   "main": "Main",
-  "pageNotFound": "Page not found"
+  "pageNotFound": "Page not found",
+  "somethingWentWrong": "Something went wrong...",
+  "reloadPage": "Reload page",
+  "throwError": "Throw error"
 }
