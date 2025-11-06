@@ -5,4 +5,9 @@
   border: none;
   border-radius: 2px;
   padding: 4px 6px;
+  font: var(--font-m);
+}
+
+.clear {
+  background: var(--background-button-clear);
 }
