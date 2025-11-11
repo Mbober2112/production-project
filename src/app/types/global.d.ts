@@ -16,4 +16,7 @@ declare module "*.svg" {
   export default SVG;
 }
 
+declare module "glob" {}
+declare module "minimatch" {}
+
 declare const __IS_DEV__: boolean;

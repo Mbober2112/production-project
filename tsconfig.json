@@ -38,5 +38,6 @@
       "module": "CommonJS"
     }
   },
-  "include": ["src/app/types", "./config/jest/setupTests.ts"]
+  "include": ["src", "./config/jest/setupTests.ts"],
+  "types": ["jest", "glob", "minimatch"]
 }
