@@ -26,6 +26,9 @@ jobs:
       - name: build storybook
         run: npm run storybook:build
       - name: Loki approve (CI reference)
-        run: npx loki approve --reactUri file:./storybook-static
+        run: |
+          mkdir -p .loki/current
+          cp -r .loki/reference/* .loki/current/
+        shell: bash
       - name: screenshot testing
         run: npm run test:ui:ci
