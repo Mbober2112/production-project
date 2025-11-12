@@ -25,5 +25,7 @@ jobs:
         run: npm run test:unit
       - name: build storybook
         run: npm run storybook:build
+      - name: Loki approve (CI reference)
+        run: npx loki approve --reactUri file:./storybook-static
       - name: screenshot testing
         run: npm run test:ui:ci
