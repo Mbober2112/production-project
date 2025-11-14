@@ -7,5 +7,6 @@
   "pageNotFound": "Страница не найдена",
   "somethingWentWrong": "Что-то пошло не так...",
   "reloadPage": "Обновить страницу",
-  "throwError": "Выдать ошибку"
+  "throwError": "Выдать ошибку",
+  "enter": "Войти"
 }

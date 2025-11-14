@@ -31,9 +31,9 @@ export const Button: FC<ButtonProps> = ({
       className={classNames(
         cls.button,
         {
-          [cls[theme]]: true,
+          [cls[theme]]: Boolean(theme),
           [cls.square]: square,
-          [cls[size]]: true,
+          [cls[size]]: Boolean(size),
         },
         [className]
       )}
