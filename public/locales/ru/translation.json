@@ -8,5 +8,7 @@
   "somethingWentWrong": "Что-то пошло не так...",
   "reloadPage": "Обновить страницу",
   "throwError": "Выдать ошибку",
-  "enter": "Войти"
+  "enter": "Войти",
+  "increment": "Увеличить",
+  "decrement": "Уменьшить"
 }

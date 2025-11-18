@@ -9,7 +9,6 @@ describe("Modal", () => {
       </Modal>
     );
     expect(screen.getByTestId("modal")).toBeInTheDocument();
-    screen.debug();
   });
 
   test("test modal is opened", () => {
@@ -19,7 +18,6 @@ describe("Modal", () => {
       </Modal>
     );
     expect(screen.getByTestId("modal")).toHaveClass("opened");
-    screen.debug();
   });
 
   test("test modal is closed", () => {
@@ -29,6 +27,5 @@ describe("Modal", () => {
       </Modal>
     );
     expect(screen.getByTestId("modal")).not.toHaveClass("opened");
-    screen.debug();
   });
 });

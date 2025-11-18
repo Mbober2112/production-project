@@ -6,13 +6,11 @@ describe("Sidebar", () => {
   test("test render", () => {
     componentRender(<Sidebar />);
     expect(screen.getByTestId("sidebar")).toBeInTheDocument();
-    screen.debug();
   });
 
   test("with className", () => {
     componentRender(<Sidebar className="test" />);
     expect(screen.getByTestId("sidebar")).toHaveClass("test");
-    screen.debug();
   });
 
   test("test toggle", () => {
@@ -20,6 +18,5 @@ describe("Sidebar", () => {
     const toggleButton = screen.getByTestId("sidebar-toggle");
     fireEvent.click(toggleButton);
     expect(screen.getByTestId("sidebar")).toHaveClass("collapsed");
-    screen.debug();
   });
 });

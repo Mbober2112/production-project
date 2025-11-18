@@ -5,19 +5,16 @@ describe("Button", () => {
   test("test render", () => {
     render(<Button>TEST</Button>);
     expect(screen.getByText("TEST")).toBeInTheDocument();
-    screen.debug();
   });
 
   test("with theme", () => {
     render(<Button theme={ButtonTheme.CLEAR}>TEST</Button>);
     expect(screen.getByText("TEST")).toHaveClass("clear");
-    screen.debug();
   });
 
   test("with className", () => {
     render(<Button className="test">TEST</Button>);
     expect(screen.getByText("TEST")).toHaveClass("test");
-    screen.debug();
   });
 
   test("with square and size L", () => {
@@ -27,7 +24,6 @@ describe("Button", () => {
       </Button>
     );
     expect(screen.getByText("TEST")).toHaveClass("square size_l");
-    screen.debug();
   });
 
   test("with square and size M", () => {
@@ -37,6 +33,5 @@ describe("Button", () => {
       </Button>
     );
     expect(screen.getByText("TEST")).toHaveClass("square size_m");
-    screen.debug();
   });
 });
