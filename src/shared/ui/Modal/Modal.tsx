@@ -1,3 +1,4 @@
+import { useTheme } from "app/providers/ThemeProvider";
 import React, { FC } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Portal } from "shared/ui/Portal/Portal";
@@ -15,6 +16,7 @@ export const Modal: FC<ModalProps> = ({
   isOpen,
   onClose,
 }) => {
+  const { theme } = useTheme();
   const onContentClick = (e: React.MouseEvent) => {
     e.stopPropagation();
   };
