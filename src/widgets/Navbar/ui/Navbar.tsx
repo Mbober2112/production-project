@@ -1,8 +1,8 @@
+import { LoginModal } from "features/AuthByUsername";
 import { useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Button } from "shared/ui/Button/Button";
-import { Modal } from "shared/ui/Modal/Modal";
 import { LangSwitcher } from "widgets/LangSwitcher";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import cls from "./Navbar.module.scss";
@@ -15,8 +15,12 @@ export const Navbar = ({ className }: NavbarProps) => {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const { t } = useTranslation();
 
-  const onToggleAuthModal = useCallback(() => {
-    setIsAuthModalOpen((prev) => !prev);
+  const onCloseAuthModal = useCallback(() => {
+    setIsAuthModalOpen(false);
+  }, []);
+
+  const onShowAuthModal = useCallback(() => {
+    setIsAuthModalOpen(true);
   }, []);
 
   return (
@@ -26,12 +30,10 @@ export const Navbar = ({ className }: NavbarProps) => {
     >
       <ThemeSwitcher />
       <LangSwitcher />
-      <Button data-testid="navbar-enter-button" onClick={onToggleAuthModal}>
+      <Button data-testid="navbar-enter-button" onClick={onShowAuthModal}>
         {t("enter")}
       </Button>
-      <Modal isOpen={isAuthModalOpen} onClose={onToggleAuthModal}>
-        Модалка входа
-      </Modal>
+      <LoginModal isOpen={isAuthModalOpen} onClose={onCloseAuthModal} />
     </div>
   );
 };

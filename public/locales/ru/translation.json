@@ -10,5 +10,7 @@
   "throwError": "Выдать ошибку",
   "enter": "Войти",
   "increment": "Увеличить",
-  "decrement": "Уменьшить"
+  "decrement": "Уменьшить",
+  "enterLogin": "Введите логин",
+  "enterPassword": "Введите пароль"
 }

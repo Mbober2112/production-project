@@ -28,4 +28,14 @@ describe("Modal", () => {
     );
     expect(screen.getByTestId("modal")).not.toHaveClass("opened");
   });
+
+  test("test lazy modal", () => {
+    render(
+      <Modal isOpen={false} lazy onClose={() => {}}>
+        TEST
+      </Modal>
+    );
+    const modal = screen.queryByTestId("modal");
+    expect(modal).toBeNull();
+  });
 });

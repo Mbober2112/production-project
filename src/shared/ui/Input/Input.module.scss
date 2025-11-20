@@ -1,0 +1,18 @@
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  width: 100%;
+  background: var(--background-input);
+  color: var(--text-color-clear);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0 4px;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
