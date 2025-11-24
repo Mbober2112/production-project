@@ -43,3 +43,16 @@ SquareL.args = {
   square: true,
   size: ButtonSize.L,
 };
+
+export const DisabledLight = Template.bind({});
+DisabledLight.args = {
+  children: "Text",
+  disabled: true,
+};
+
+export const DisabledDark = Template.bind({});
+DisabledDark.args = {
+  children: "Text",
+  disabled: true,
+};
+DisabledDark.decorators = [ThemeDecorator(Theme.DARK)];

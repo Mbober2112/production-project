@@ -12,5 +12,8 @@
   "increment": "Increment",
   "decrement": "Decrement",
   "enterLogin": "Enter login",
-  "enterPassword": "Enter password"
+  "enterPassword": "Enter password",
+  "authorization": "Authorization",
+  "authError": "Incorrect login or password",
+  "exit": "Exit"
 }

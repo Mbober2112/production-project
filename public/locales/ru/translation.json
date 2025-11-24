@@ -12,5 +12,8 @@
   "increment": "Увеличить",
   "decrement": "Уменьшить",
   "enterLogin": "Введите логин",
-  "enterPassword": "Введите пароль"
+  "enterPassword": "Введите пароль",
+  "authorization": "Авторизация",
+  "authError": "Неверный логин или пароль",
+  "exit": "Выход"
 }

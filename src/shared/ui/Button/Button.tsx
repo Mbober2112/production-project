@@ -16,6 +16,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: ButtonTheme;
   square?: boolean;
   size?: ButtonSize;
+  disabled?: boolean;
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -24,6 +25,7 @@ export const Button: FC<ButtonProps> = ({
   theme,
   square,
   size,
+  disabled,
   ...props
 }) => {
   return (
@@ -34,9 +36,11 @@ export const Button: FC<ButtonProps> = ({
           [cls[theme]]: Boolean(theme),
           [cls.square]: square,
           [cls[size]]: Boolean(size),
+          [cls.disabled]: Boolean(disabled),
         },
         [className]
       )}
+      disabled={disabled}
       {...props}
     >
       {children}

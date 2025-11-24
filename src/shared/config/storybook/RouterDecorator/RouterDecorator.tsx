@@ -1,8 +1,9 @@
-import { Story } from '@storybook/react';
-import { BrowserRouter } from 'react-router-dom';
+import { Story } from "@storybook/react";
+import { Suspense } from "react";
+import { BrowserRouter } from "react-router-dom";
 
 export const RouterDecorator = (story: () => Story) => (
-    <BrowserRouter>
-        {story()}
-    </BrowserRouter>
+  <Suspense fallback={""}>
+    <BrowserRouter>{story()}</BrowserRouter>
+  </Suspense>
 );
