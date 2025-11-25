@@ -47,7 +47,11 @@ export const Navbar = ({ className }: NavbarProps) => {
           <Button data-testid="navbar-enter-button" onClick={onShowAuthModal}>
             {t("enter")}
           </Button>
-          <LoginModal isOpen={isAuthModalOpen} onClose={onCloseAuthModal} />
+          {isAuthModalOpen ? (
+            <LoginModal isOpen={isAuthModalOpen} onClose={onCloseAuthModal} />
+          ) : (
+            <></>
+          )}
         </>
       )}
     </div>
