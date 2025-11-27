@@ -10,8 +10,9 @@ interface ThemeSwitcherProps {
 }
 
 import { useTranslation } from "react-i18next";
+import { memo } from "react";
 
-export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
+export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
   const { theme, toggleTheme } = useTheme();
   const { t } = useTranslation();
 
@@ -33,4 +34,4 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
       )}
     </Button>
   );
-};
+});

@@ -1,20 +1,16 @@
-import { useState } from "react";
-import { useTranslation } from "react-i18next";
-import { RoutePath } from "shared/config/routeConfig/routeConfig";
+import { memo, useState } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
-import { AppLink } from "shared/ui/AppLink/AppLink";
 import { Button, ButtonSize } from "shared/ui/Button/Button";
-import AboutIcon from "shared/assets/icons/about-page-icon.svg";
-import MainIcon from "shared/assets/icons/home-page-icon.svg";
 import cls from "./Sidebar.module.scss";
+import { SidebarItemsList } from "../model/items";
+import { SidebarItem } from "./SidebarItem/SidebarItem";
 
 interface SidebarProps {
   className?: string;
 }
 
-export const Sidebar = ({ className }: SidebarProps) => {
+export const Sidebar = memo(({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false);
-  const { t } = useTranslation();
 
   const onToggle = () => {
     setCollapsed((prev) => !prev);
@@ -37,15 +33,10 @@ export const Sidebar = ({ className }: SidebarProps) => {
         {collapsed ? ">" : "<"}
       </Button>
       <div className={classNames(cls.pages)}>
-        <AppLink to={RoutePath.main} className={classNames(cls.page)}>
-          <MainIcon className={classNames(cls.icon)} />
-          <span className={classNames(cls.link)}>{t("main")}</span>
-        </AppLink>
-        <AppLink to={RoutePath.about} className={classNames(cls.page)}>
-          <AboutIcon className={classNames(cls.icon)} />
-          <span className={classNames(cls.link)}>{t("about")}</span>
-        </AppLink>
+        {SidebarItemsList.map((item) => (
+          <SidebarItem item={item} key={item.path} collapsed={collapsed} />
+        ))}
       </div>
     </div>
   );
-};
+});

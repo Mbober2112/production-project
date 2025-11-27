@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Loader } from "shared/ui/Loader/Loader";
 import cls from "./PageLoader.module.scss";
@@ -7,10 +7,10 @@ interface PageLoaderProps {
   className?: string;
 }
 
-export const PageLoader: FC<PageLoaderProps> = ({ className }) => {
+export const PageLoader: FC<PageLoaderProps> = memo(({ className }) => {
   return (
     <div className={classNames(cls.pageLoader, {}, [className])}>
       <Loader />
     </div>
   );
-};
+});

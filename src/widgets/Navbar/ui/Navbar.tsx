@@ -1,9 +1,12 @@
 import { getUserAuthData, userActions } from "entitiesModule/User";
 import { LoginModal } from "features/AuthByUsername";
-import { useCallback, useState } from "react";
+import { memo, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import { classNames } from "shared/lib/classNames/classNames";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { AppLink } from "shared/ui/AppLink/AppLink";
 import { Button } from "shared/ui/Button/Button";
 import { LangSwitcher } from "widgets/LangSwitcher";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher";
@@ -13,9 +16,9 @@ interface NavbarProps {
   className?: string;
 }
 
-export const Navbar = ({ className }: NavbarProps) => {
+export const Navbar = memo(({ className }: NavbarProps) => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const authData = useSelector(getUserAuthData);
 
@@ -39,9 +42,14 @@ export const Navbar = ({ className }: NavbarProps) => {
       <ThemeSwitcher />
       <LangSwitcher />
       {authData ? (
-        <Button data-testid="navbar-enter-button" onClick={onLogout}>
-          {t("exit")}
-        </Button>
+        <div className={classNames(cls.profileWrapper)}>
+          <AppLink to={RoutePath.profile} className={classNames(cls.profile)}>
+            <span className={classNames(cls.link)}>Профиль</span>
+          </AppLink>
+          <Button data-testid="navbar-enter-button" onClick={onLogout}>
+            {t("exit")}
+          </Button>
+        </div>
       ) : (
         <>
           <Button data-testid="navbar-enter-button" onClick={onShowAuthModal}>
@@ -56,4 +64,4 @@ export const Navbar = ({ className }: NavbarProps) => {
       )}
     </div>
   );
-};
+});

@@ -20,30 +20,10 @@
   justify-content: center;
 }
 
-.page {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.icon {
-  fill: var(--bg-color-inverted);
-}
-
-.link {
-  opacity: 1;
-}
-
 .collapsed {
   width: var(--sidebar-width-collapsed);
 
-  .page {
-    justify-content: center;
-  }
-
-  .link {
-    opacity: 0;
-    width: 0;
-    height: 0;
+  .pages {
+    align-items: center;
   }
 }

@@ -9,3 +9,13 @@
   gap: 30px;
   padding: 10px;
 }
+
+.profileWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile {
+  cursor: pointer;
+}
