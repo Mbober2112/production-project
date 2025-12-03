@@ -12,15 +12,24 @@ interface TextProps {
   title?: string;
   text?: string;
   theme?: TextTheme;
+  bold?: boolean;
 }
 
 export const Text = memo(
-  ({ className, title, text, theme = TextTheme.DEFAULT }: TextProps) => {
+  ({
+    className,
+    title,
+    text,
+    theme = TextTheme.DEFAULT,
+    bold = false,
+  }: TextProps) => {
     return (
       <div
-        className={classNames(cls.textWrapper, { [cls[theme]]: true }, [
-          className,
-        ])}
+        className={classNames(
+          cls.textWrapper,
+          { [cls[theme]]: true, [cls.bold]: bold },
+          [className]
+        )}
       >
         {title && <p className={cls.title}>{title}</p>}
         {text && <p className={cls.text}>{text}</p>}
