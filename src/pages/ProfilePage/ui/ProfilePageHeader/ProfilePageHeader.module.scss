@@ -1,0 +1,11 @@
+.profilePageHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.icon {
+  fill: var(--bg-color-inverted);
+}

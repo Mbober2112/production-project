@@ -1,19 +1,20 @@
 import { classNames } from "shared/lib/classNames/classNames";
-import cls from "./ProfileMainCard.module.scss";
+import cls from "./ProfileEditCard.module.scss";
 import { useTranslation } from "react-i18next";
 import { memo } from "react";
 import { Text, TextAlign, TextTheme } from "shared/ui/Text/Text";
 import { useSelector } from "react-redux";
 import { getProfileData } from "../../model/selectors/getProfileData/getProfileData";
-import { getProfileIsLoading } from "../../model/selectors/getProfileIsLoading/getProfileIsLoading";
+import { Input } from "shared/ui/Input/Input";
+import { getProfileIsLoading } from "entitiesModule/Profile/model/selectors/getProfileIsLoading/getProfileIsLoading";
 import { Loader } from "shared/ui/Loader/Loader";
 import { getProfileError } from "entitiesModule/Profile/model/selectors/getProfileError/getProfileError";
 
-interface ProfileMainCardProps {
+interface ProfileEditCardProps {
   className?: string;
 }
 
-export const ProfileMainCard = memo(({ className }: ProfileMainCardProps) => {
+export const ProfileEditCard = memo(({ className }: ProfileEditCardProps) => {
   const { t } = useTranslation("profile");
   const profileData = useSelector(getProfileData);
   const isLoading = useSelector(getProfileIsLoading);
@@ -22,7 +23,7 @@ export const ProfileMainCard = memo(({ className }: ProfileMainCardProps) => {
   if (isLoading) {
     return (
       <div
-        className={classNames(cls.profileMainCard, {}, [className, cls.noData])}
+        className={classNames(cls.profileEditCard, {}, [className, cls.noData])}
       >
         <Loader />
       </div>
@@ -32,7 +33,7 @@ export const ProfileMainCard = memo(({ className }: ProfileMainCardProps) => {
   if (isError) {
     return (
       <div
-        className={classNames(cls.profileMainCard, {}, [className, cls.noData])}
+        className={classNames(cls.profileEditCard, {}, [className, cls.noData])}
       >
         <Text
           title={t("fetchProfileDataError")}
@@ -49,22 +50,22 @@ export const ProfileMainCard = memo(({ className }: ProfileMainCardProps) => {
   }
 
   return (
-    <div className={classNames(cls.profileMainCard, {}, [className])}>
+    <div className={classNames(cls.profileEditCard, {}, [className])}>
       <div className={cls.stringWrapper}>
         <Text bold text={`${t("name")}:`} />
-        <Text text={profileData?.firstname} />
+        <Input className={cls.input} value={profileData?.firstname} />
       </div>
       <div className={cls.stringWrapper}>
         <Text bold text={`${t("lastname")}:`} />
-        <Text text={profileData?.lastname} />
+        <Input className={cls.input} value={profileData?.lastname} />
       </div>
       <div className={cls.stringWrapper}>
         <Text bold text={`${t("country")}:`} />
-        <Text text={profileData?.country} />
+        <Input className={cls.input} value={profileData?.country} />
       </div>
       <div className={cls.stringWrapper}>
         <Text bold text={`${t("city")}:`} />
-        <Text text={profileData?.city} />
+        <Input className={cls.input} value={profileData?.city} />
       </div>
     </div>
   );

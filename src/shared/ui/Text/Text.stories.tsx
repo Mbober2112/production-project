@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
-import { Text, TextTheme } from "./Text";
+import { Text, TextAlign, TextTheme } from "./Text";
 
 export default {
   title: "shared/Text",
@@ -54,3 +54,21 @@ DarkError.args = {
   theme: TextTheme.ERROR,
 };
 DarkError.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const TextAlignLeft = Template.bind({});
+TextAlignLeft.args = {
+  text: "Some long text under title",
+  align: TextAlign.LEFT,
+};
+
+export const TextAlignRight = Template.bind({});
+TextAlignRight.args = {
+  text: "Some long text under title",
+  align: TextAlign.RIGHT,
+};
+
+export const TextAlignCenter = Template.bind({});
+TextAlignCenter.args = {
+  text: "Some long text under title",
+  align: TextAlign.CENTER,
+};

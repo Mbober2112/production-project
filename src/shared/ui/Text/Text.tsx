@@ -7,29 +7,37 @@ export enum TextTheme {
   ERROR = "error",
 }
 
+export enum TextAlign {
+  LEFT = "left",
+  RIGHT = "right",
+  CENTER = "center",
+}
+
 interface TextProps {
+  align?: TextAlign;
+  bold?: boolean;
   className?: string;
-  title?: string;
   text?: string;
   theme?: TextTheme;
-  bold?: boolean;
+  title?: string;
 }
 
 export const Text = memo(
   ({
+    align = TextAlign.LEFT,
+    bold = false,
     className,
-    title,
     text,
     theme = TextTheme.DEFAULT,
-    bold = false,
+    title,
   }: TextProps) => {
     return (
       <div
-        className={classNames(
-          cls.textWrapper,
-          { [cls[theme]]: true, [cls.bold]: bold },
-          [className]
-        )}
+        className={classNames(cls.textWrapper, { [cls.bold]: bold }, [
+          className,
+          cls[theme],
+          cls[align],
+        ])}
       >
         {title && <p className={cls.title}>{title}</p>}
         {text && <p className={cls.text}>{text}</p>}

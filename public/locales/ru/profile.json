@@ -1,1 +1,10 @@
-{ "profile": "Профиль", "name": "Имя", "lastname": "Фамилия" }
+{
+  "profile": "Профиль",
+  "name": "Имя",
+  "lastname": "Фамилия",
+  "profileEditing": "Редактирование профиля",
+  "country": "Страна",
+  "city": "Город",
+  "fetchProfileDataError": "Ошибка загрузки данных профиля",
+  "tryToReloadPage": "Попробуйте обновить страницу"
+}

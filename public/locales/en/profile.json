@@ -1,1 +1,10 @@
-{ "profile": "Profile", "name": "Name", "lastname": "Lastname" }
+{
+  "profile": "Profile",
+  "name": "Name",
+  "lastname": "Lastname",
+  "profileEditing": "Profile editing",
+  "country": "Country",
+  "city": "City",
+  "fetchProfileDataError": "Profile data loading error",
+  "tryToReloadPage": "Try to reload page"
+}

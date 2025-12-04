@@ -1,13 +1,17 @@
-.profileMainCard {
+.profileEditCard {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
 }
 
 .stringWrapper {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.input {
+  flex-grow: 1;
 }
 
 .noData {

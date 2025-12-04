@@ -1,5 +1,5 @@
 import { fetchProfileData, profileReducer } from "entitiesModule/Profile";
-import { ProfileMainCard } from "entitiesModule/Profile/ui/ProfileMainCard/ProfileMainCard";
+import { ProfileEditCard } from "entitiesModule/Profile/ui/ProfileEditCard/ProfileEditCard";
 import { useEffect } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import {
@@ -7,18 +7,18 @@ import {
   ReducersList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import cls from "./ProfilePage.module.scss";
-import ProfilePageHeader from "./ProfilePageHeader/ProfilePageHeader";
+import cls from "./ProfileEditPage.module.scss";
+import ProfileEditPageHeader from "./ProfileEditPageHeader/ProfileEditPageHeader";
 
 const reducers: ReducersList = {
   profile: profileReducer,
 };
 
-interface ProfilePageProps {
+interface ProfileEditPageProps {
   className?: string;
 }
 
-const ProfilePage = ({ className }: ProfilePageProps) => {
+const ProfileEditPage = ({ className }: ProfileEditPageProps) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -27,12 +27,12 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(cls.profilePage, {}, [className])}>
-        <ProfilePageHeader canEdit />
-        <ProfileMainCard />
+      <div className={classNames(cls.profileEditPage, {}, [className])}>
+        <ProfileEditPageHeader />
+        <ProfileEditCard />
       </div>
     </DynamicModuleLoader>
   );
 };
 
-export default ProfilePage;
+export default ProfileEditPage;

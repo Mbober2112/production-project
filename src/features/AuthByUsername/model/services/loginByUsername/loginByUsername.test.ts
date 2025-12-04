@@ -5,8 +5,6 @@ import { loginByUsername } from "./loginByUsername";
 
 jest.mock("axios");
 
-const mockedAxios = jest.mocked(axios, true);
-
 describe("loginByUsername", () => {
   test("success login", async () => {
     const userValue = { username: "123", id: "1" };
