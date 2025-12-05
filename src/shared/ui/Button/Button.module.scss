@@ -3,7 +3,7 @@
   background: var(--bg-color-inverted);
   color: var(--primary-color-inverted);
   border: none;
-  border-radius: 2px;
+  border-radius: 4px;
   padding: 4px 6px;
   font: var(--font-m);
 }
@@ -11,6 +11,10 @@
 .clear {
   background: var(--background-button-clear);
   color: var(--text-color-clear);
+}
+
+.primary {
+  background: var(--bg-blue-color);
 }
 
 .square {

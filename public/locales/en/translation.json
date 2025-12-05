@@ -15,5 +15,7 @@
   "enterPassword": "Enter password",
   "authorization": "Authorization",
   "authError": "Incorrect login or password",
-  "exit": "Exit"
+  "exit": "Exit",
+  "cancel": "Cancel",
+  "save": "Save"
 }

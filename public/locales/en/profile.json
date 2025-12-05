@@ -6,5 +6,8 @@
   "country": "Country",
   "city": "City",
   "fetchProfileDataError": "Profile data loading error",
-  "tryToReloadPage": "Try to reload page"
+  "tryToReloadPage": "Try to reload page",
+  "age": "Age",
+  "cancel": "Cancel",
+  "save": "Save"
 }

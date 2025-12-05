@@ -8,6 +8,8 @@ import { getProfileData } from "../../model/selectors/getProfileData/getProfileD
 import { getProfileIsLoading } from "../../model/selectors/getProfileIsLoading/getProfileIsLoading";
 import { Loader } from "shared/ui/Loader/Loader";
 import { getProfileError } from "entitiesModule/Profile/model/selectors/getProfileError/getProfileError";
+import { getAge } from "shared/lib/getAge/getAge";
+import { Avatar, AvatarSize } from "shared/ui/Avatar/Avatar";
 
 interface ProfileMainCardProps {
   className?: string;
@@ -18,6 +20,9 @@ export const ProfileMainCard = memo(({ className }: ProfileMainCardProps) => {
   const profileData = useSelector(getProfileData);
   const isLoading = useSelector(getProfileIsLoading);
   const isError = useSelector(getProfileError);
+  const age = profileData?.dateOfBirth
+    ? `${getAge(profileData?.dateOfBirth)}`
+    : "";
 
   if (isLoading) {
     return (
@@ -50,21 +55,26 @@ export const ProfileMainCard = memo(({ className }: ProfileMainCardProps) => {
 
   return (
     <div className={classNames(cls.profileMainCard, {}, [className])}>
-      <div className={cls.stringWrapper}>
+      <Avatar size={AvatarSize.LARGE} src={profileData?.avatar} />
+      <div className={cls.field}>
         <Text bold text={`${t("name")}:`} />
         <Text text={profileData?.firstname} />
       </div>
-      <div className={cls.stringWrapper}>
+      <div className={cls.field}>
         <Text bold text={`${t("lastname")}:`} />
         <Text text={profileData?.lastname} />
       </div>
-      <div className={cls.stringWrapper}>
+      <div className={cls.field}>
         <Text bold text={`${t("country")}:`} />
         <Text text={profileData?.country} />
       </div>
-      <div className={cls.stringWrapper}>
+      <div className={cls.field}>
         <Text bold text={`${t("city")}:`} />
         <Text text={profileData?.city} />
+      </div>
+      <div className={cls.field}>
+        <Text bold text={`${t("age")}:`} />
+        <Text text={age} />
       </div>
     </div>
   );
