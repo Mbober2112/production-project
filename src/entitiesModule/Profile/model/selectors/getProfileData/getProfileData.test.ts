@@ -1,5 +1,5 @@
 import { StateSchema } from "app/providers/StoreProvider";
-import { Countries } from "shared/const/common";
+import { Countries } from "entitiesModule/Country";
 import { getProfileData } from "./getProfileData";
 
 describe("getProfileData", () => {

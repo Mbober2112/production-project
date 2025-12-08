@@ -17,5 +17,10 @@
   "authError": "Incorrect login or password",
   "exit": "Exit",
   "cancel": "Cancel",
-  "save": "Save"
+  "save": "Save",
+  "Russia": "Russia",
+  "Ukraine": "Ukraine",
+  "Belarus": "Belarus",
+  "USA": "USA",
+  "England": "England"
 }

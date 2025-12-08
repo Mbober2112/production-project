@@ -1,4 +1,4 @@
-import { Countries } from "shared/const/common";
+import { Countries } from "entitiesModule/Country";
 
 export interface Profile {
   firstname?: string;

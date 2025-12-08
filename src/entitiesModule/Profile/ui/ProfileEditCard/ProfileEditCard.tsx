@@ -13,6 +13,7 @@ import { profileActions } from "../../model/slice/profileSlice";
 import { getProfileForm } from "../../model/selectors/getProfileForm/getProfileForm";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { updateProfileData } from "entitiesModule/Profile/model/services/updateProfileData/updateProfileData";
+import { Countries, CountrySelect } from "entitiesModule/Country";
 
 interface ProfileEditCardProps {
   className?: string;
@@ -42,6 +43,20 @@ export const ProfileEditCard = memo(({ className }: ProfileEditCardProps) => {
   const onChangeCity = useCallback(
     (value?: string) => {
       dispatch(profileActions.updateProfileForm({ city: value || "" }));
+    },
+    [dispatch]
+  );
+
+  const onChangeAvatar = useCallback(
+    (value?: string) => {
+      dispatch(profileActions.updateProfileForm({ avatar: value || "" }));
+    },
+    [dispatch]
+  );
+
+  const onChangeCountry = useCallback(
+    (country: Countries) => {
+      dispatch(profileActions.updateProfileForm({ country }));
     },
     [dispatch]
   );
@@ -103,7 +118,11 @@ export const ProfileEditCard = memo(({ className }: ProfileEditCardProps) => {
       </div>
       <div className={cls.field}>
         <Text bold text={`${t("country")}:`} />
-        <Input className={cls.input} value={profileForm?.country} />
+        <CountrySelect
+          className={cls.input}
+          value={profileForm?.country}
+          onChange={onChangeCountry}
+        />
       </div>
       <div className={cls.field}>
         <Text bold text={`${t("city")}:`} />
@@ -111,6 +130,14 @@ export const ProfileEditCard = memo(({ className }: ProfileEditCardProps) => {
           className={cls.input}
           value={profileForm?.city}
           onChange={onChangeCity}
+        />
+      </div>
+      <div className={cls.field}>
+        <Text bold text={`${t("avatar")}:`} />
+        <Input
+          className={cls.input}
+          value={profileForm?.avatar}
+          onChange={onChangeAvatar}
         />
       </div>
       <div className={cls.buttonWrapper}>

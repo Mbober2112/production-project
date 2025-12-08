@@ -9,5 +9,11 @@
   "tryToReloadPage": "Try to reload page",
   "age": "Age",
   "cancel": "Cancel",
-  "save": "Save"
+  "save": "Save",
+  "avatar": "Avatar",
+  "Russia": "Russia",
+  "Ukraine": "Ukraine",
+  "Belarus": "Belarus",
+  "USA": "USA",
+  "England": "England"
 }

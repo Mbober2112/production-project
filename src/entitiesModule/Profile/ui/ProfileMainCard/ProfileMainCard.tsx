@@ -66,7 +66,7 @@ export const ProfileMainCard = memo(({ className }: ProfileMainCardProps) => {
       </div>
       <div className={cls.field}>
         <Text bold text={`${t("country")}:`} />
-        <Text text={profileData?.country} />
+        <Text text={t(profileData?.country || "")} />
       </div>
       <div className={cls.field}>
         <Text bold text={`${t("city")}:`} />
