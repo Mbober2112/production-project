@@ -15,5 +15,12 @@
   "Ukraine": "Украина",
   "Belarus": "Беларусь",
   "USA": "США",
-  "England": "Англия"
+  "England": "Англия",
+  "incorrectAvatarLink": "Неверная ссылка",
+  "incorrectCity": "Неверно указан город",
+  "incorrectFirstname": "Некорректное имя",
+  "incorrectLastname": "Некорректная фамилия",
+  "noProfileData": "Нет данных профиля",
+  "serverSaveError": "Ошибка сервера при сохранении данных",
+  "dateOfBirth": "Дата рождения"
 }

@@ -14,6 +14,9 @@ import { getProfileForm } from "../../model/selectors/getProfileForm/getProfileF
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { updateProfileData } from "entitiesModule/Profile/model/services/updateProfileData/updateProfileData";
 import { Countries, CountrySelect } from "entitiesModule/Country";
+import { getProfileValidateErrors } from "entitiesModule/Profile/model/selectors/getProfileValidateError/getProfileValidateErrors";
+import { ValidateProfileError } from "entitiesModule/Profile/model/types/profile";
+import { DateInput } from "shared/ui/DateInput/DateInput";
 
 interface ProfileEditCardProps {
   className?: string;
@@ -25,31 +28,40 @@ export const ProfileEditCard = memo(({ className }: ProfileEditCardProps) => {
   const profileForm = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);
   const isError = useSelector(getProfileError);
+  const validateErrors = useSelector(getProfileValidateErrors);
+  const validateProfileTranslations = {
+    [ValidateProfileError.INCORRECT_AVATAR_LINK]: t("incorrectAvatarLink"),
+    [ValidateProfileError.INCORRECT_CITY]: t("incorrectCity"),
+    [ValidateProfileError.INCORRECT_FIRSTNAME]: t("incorrectFirstname"),
+    [ValidateProfileError.INCORRECT_LASTNAME]: t("incorrectLastname"),
+    [ValidateProfileError.NO_DATA]: t("noProfileData"),
+    [ValidateProfileError.SERVER_ERROR]: t("serverSaveError"),
+  };
 
   const onChangeFirstname = useCallback(
     (value?: string) => {
-      dispatch(profileActions.updateProfileForm({ firstname: value || "" }));
+      dispatch(profileActions.updateProfileForm({ firstname: value }));
     },
     [dispatch]
   );
 
   const onChangeLastname = useCallback(
     (value?: string) => {
-      dispatch(profileActions.updateProfileForm({ lastname: value || "" }));
+      dispatch(profileActions.updateProfileForm({ lastname: value }));
     },
     [dispatch]
   );
 
   const onChangeCity = useCallback(
     (value?: string) => {
-      dispatch(profileActions.updateProfileForm({ city: value || "" }));
+      dispatch(profileActions.updateProfileForm({ city: value }));
     },
     [dispatch]
   );
 
   const onChangeAvatar = useCallback(
     (value?: string) => {
-      dispatch(profileActions.updateProfileForm({ avatar: value || "" }));
+      dispatch(profileActions.updateProfileForm({ avatar: value }));
     },
     [dispatch]
   );
@@ -57,6 +69,13 @@ export const ProfileEditCard = memo(({ className }: ProfileEditCardProps) => {
   const onChangeCountry = useCallback(
     (country: Countries) => {
       dispatch(profileActions.updateProfileForm({ country }));
+    },
+    [dispatch]
+  );
+
+  const onChangeBirthday = useCallback(
+    (value?: number) => {
+      dispatch(profileActions.updateProfileForm({ dateOfBirth: value }));
     },
     [dispatch]
   );
@@ -100,6 +119,13 @@ export const ProfileEditCard = memo(({ className }: ProfileEditCardProps) => {
 
   return (
     <div className={classNames(cls.profileEditCard, {}, [className])}>
+      {validateErrors?.length &&
+        validateErrors.map((error) => (
+          <Text
+            text={validateProfileTranslations[error]}
+            theme={TextTheme.ERROR}
+          />
+        ))}
       <div className={cls.field}>
         <Text bold text={`${t("name")}:`} />
         <Input
@@ -138,6 +164,14 @@ export const ProfileEditCard = memo(({ className }: ProfileEditCardProps) => {
           className={cls.input}
           value={profileForm?.avatar}
           onChange={onChangeAvatar}
+        />
+      </div>
+      <div className={cls.field}>
+        <Text bold text={`${t("dateOfBirth")}:`} />
+        <DateInput
+          className={cls.input}
+          value={profileForm?.dateOfBirth}
+          onChange={onChangeBirthday}
         />
       </div>
       <div className={cls.buttonWrapper}>

@@ -15,5 +15,12 @@
   "Ukraine": "Ukraine",
   "Belarus": "Belarus",
   "USA": "USA",
-  "England": "England"
+  "England": "England",
+  "incorrectAvatarLink": "Incorrect avatar link",
+  "incorrectCity": "Incorrect city",
+  "incorrectFirstname": "Incorrect firstname",
+  "incorrectLastname": "Incorrect lastname",
+  "noProfileData": "No profile data",
+  "serverSaveError": "Server saving data error",
+  "dateOfBirth": "Date of birth"
 }
