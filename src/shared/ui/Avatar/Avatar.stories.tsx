@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import DefaultImage from "./storybook.png";
+import DefaultImage from "shared/assets/tests/storybook.png";
 import { Avatar, AvatarSize } from "./Avatar";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";

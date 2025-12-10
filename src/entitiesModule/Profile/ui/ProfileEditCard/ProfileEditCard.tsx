@@ -14,7 +14,7 @@ import { getProfileForm } from "../../model/selectors/getProfileForm/getProfileF
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { updateProfileData } from "entitiesModule/Profile/model/services/updateProfileData/updateProfileData";
 import { Countries, CountrySelect } from "entitiesModule/Country";
-import { getProfileValidateErrors } from "entitiesModule/Profile/model/selectors/getProfileValidateError/getProfileValidateErrors";
+import { getProfileValidateErrors } from "../../model/selectors/getProfileValidateErrors/getProfileValidateErrors";
 import { ValidateProfileError } from "entitiesModule/Profile/model/types/profile";
 import { DateInput } from "shared/ui/DateInput/DateInput";
 

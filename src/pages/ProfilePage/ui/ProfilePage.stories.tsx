@@ -3,6 +3,17 @@ import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from "app/providers/ThemeProvider";
 import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator";
 import ProfilePage from "./ProfilePage";
+import { Countries } from "entitiesModule/Country";
+import avatar from "shared/assets/tests/storybook.png";
+
+const profileDataMock = {
+  firstname: "Евгений",
+  lastname: "Бобров",
+  country: Countries.Russia,
+  city: "Нижний Новгород",
+  avatar: avatar,
+  dateOfBirth: new Date("1990-05-15T00:00:00Z").getTime(),
+};
 
 export default {
   title: "pages/ProfilePage",
@@ -16,8 +27,13 @@ const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />;
 
 export const PrimaryLight = Template.bind({});
 PrimaryLight.args = {};
-PrimaryLight.decorators = [StoreDecorator({})];
+PrimaryLight.decorators = [
+  StoreDecorator({ profile: { data: profileDataMock } }),
+];
 
 export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {};
-PrimaryDark.decorators = [StoreDecorator({}), ThemeDecorator(Theme.DARK)];
+PrimaryDark.decorators = [
+  StoreDecorator({ profile: { data: profileDataMock } }),
+  ThemeDecorator(Theme.DARK),
+];
