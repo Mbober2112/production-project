@@ -8,6 +8,10 @@
   fill: var(--bg-color-inverted);
 }
 
+.page:hover .icon {
+  fill: var(--text-hover-color);
+}
+
 .link {
   opacity: 1;
 }
