@@ -9,6 +9,11 @@ export enum ValidateProfileError {
   SERVER_ERROR = "SERVER_ERROR",
 }
 
+export enum SexTypes {
+  MALE = "male",
+  FEMALE = "female",
+}
+
 export interface Profile {
   firstname?: string;
   lastname?: string;
@@ -18,6 +23,7 @@ export interface Profile {
   username?: string;
   avatar?: string;
   id?: string;
+  sex?: SexTypes;
 }
 
 export interface ProfileSchema {
@@ -25,6 +31,5 @@ export interface ProfileSchema {
   form?: Profile;
   isLoading: boolean;
   error?: string;
-  readonly: boolean;
   validateErrors?: ValidateProfileError[];
 }

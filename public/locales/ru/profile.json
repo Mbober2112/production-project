@@ -22,5 +22,8 @@
   "incorrectLastname": "Некорректная фамилия",
   "noProfileData": "Нет данных профиля",
   "serverSaveError": "Ошибка сервера при сохранении данных",
-  "dateOfBirth": "Дата рождения"
+  "dateOfBirth": "Дата рождения",
+  "sex": "Пол",
+  "male": "Мужской",
+  "female": "Женский"
 }

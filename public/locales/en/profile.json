@@ -22,5 +22,8 @@
   "incorrectLastname": "Incorrect lastname",
   "noProfileData": "No profile data",
   "serverSaveError": "Server saving data error",
-  "dateOfBirth": "Date of birth"
+  "dateOfBirth": "Date of birth",
+  "sex": "Sex",
+  "male": "Male",
+  "female": "Female"
 }

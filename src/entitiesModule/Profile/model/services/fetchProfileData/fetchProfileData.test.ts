@@ -5,7 +5,7 @@ import { Countries } from "entitiesModule/Country";
 const data = {
   firstname: "Евгений",
   lastname: "Бобров",
-  country: Countries.Russia,
+  country: Countries.RUSSIA,
   city: "Нижний Новгород",
   avatar: "https://someUrl.ru",
   dateOfBirth: new Date("1990-05-15T00:00:00Z").getTime(),

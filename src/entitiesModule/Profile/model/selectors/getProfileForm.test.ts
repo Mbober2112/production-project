@@ -1,16 +1,16 @@
 import { StateSchema } from "app/providers/StoreProvider";
 import { Countries } from "entitiesModule/Country";
-import { getProfileData } from "./getProfileData";
+import { getProfileForm } from "./getProfileForm/getProfileForm";
 
-describe("getProfileData", () => {
-  test("should return profile data", () => {
+describe("getProfileForm", () => {
+  test("should return profile form", () => {
     const state: DeepPartial<StateSchema> = {
       profile: {
-        data: {
+        form: {
           firstname: "A",
           lastname: "B",
           dateOfBirth: 1,
-          country: Countries.Russia,
+          country: Countries.RUSSIA,
           city: "C",
           username: "D",
           avatar: "avatar",
@@ -18,11 +18,11 @@ describe("getProfileData", () => {
         },
       },
     };
-    expect(getProfileData(state as StateSchema)).toEqual({
+    expect(getProfileForm(state as StateSchema)).toEqual({
       firstname: "A",
       lastname: "B",
       dateOfBirth: 1,
-      country: Countries.Russia,
+      country: Countries.RUSSIA,
       city: "C",
       username: "D",
       avatar: "avatar",
@@ -32,6 +32,6 @@ describe("getProfileData", () => {
 
   test("should work with empty state", () => {
     const state: DeepPartial<StateSchema> = {};
-    expect(getProfileData(state as StateSchema)).toEqual(undefined);
+    expect(getProfileForm(state as StateSchema)).toEqual(undefined);
   });
 });

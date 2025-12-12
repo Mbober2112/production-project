@@ -5,18 +5,22 @@ import { memo, useCallback } from "react";
 import { Text, TextAlign, TextTheme } from "shared/ui/Text/Text";
 import { useSelector } from "react-redux";
 import { Input } from "shared/ui/Input/Input";
-import { getProfileIsLoading } from "../../model/selectors/getProfileIsLoading/getProfileIsLoading";
 import { Loader } from "shared/ui/Loader/Loader";
-import { getProfileError } from "../../model/selectors/getProfileError/getProfileError";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { profileActions } from "../../model/slice/profileSlice";
-import { getProfileForm } from "../../model/selectors/getProfileForm/getProfileForm";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
-import { updateProfileData } from "entitiesModule/Profile/model/services/updateProfileData/updateProfileData";
+import { updateProfileData } from "../../model/services/updateProfileData/updateProfileData";
 import { Countries, CountrySelect } from "entitiesModule/Country";
-import { getProfileValidateErrors } from "../../model/selectors/getProfileValidateErrors/getProfileValidateErrors";
-import { ValidateProfileError } from "entitiesModule/Profile/model/types/profile";
+import { SexTypes, ValidateProfileError } from "../../model/types/profile";
 import { DateInput } from "shared/ui/DateInput/DateInput";
+import {
+  getProfileError,
+  getProfileForm,
+  getProfileIsLoading,
+  getProfileValidateErrors,
+} from "../../model/selectors/profileSelectors";
+import { Select } from "shared/ui/Select/Select";
+import { Skeleton } from "shared/ui/Skeleton/Sceleton";
 
 interface ProfileEditCardProps {
   className?: string;
@@ -73,6 +77,13 @@ export const ProfileEditCard = memo(({ className }: ProfileEditCardProps) => {
     [dispatch]
   );
 
+  const onChangeSex = useCallback(
+    (sex: string) => {
+      dispatch(profileActions.updateProfileForm({ sex: sex as SexTypes }));
+    },
+    [dispatch]
+  );
+
   const onChangeBirthday = useCallback(
     (value?: number) => {
       dispatch(profileActions.updateProfileForm({ dateOfBirth: value }));
@@ -90,10 +101,16 @@ export const ProfileEditCard = memo(({ className }: ProfileEditCardProps) => {
 
   if (isLoading) {
     return (
-      <div
-        className={classNames(cls.profileEditCard, {}, [className, cls.noData])}
-      >
-        <Loader />
+      <div className={classNames(cls.profileEditCard, {}, [className])}>
+        <div className={cls.fieldsWrapper}>
+          <Skeleton className={cls.fieldsSkeleton} />
+          <Skeleton className={cls.fieldsSkeleton} />
+          <Skeleton className={cls.fieldsSkeleton} />
+          <Skeleton className={cls.fieldsSkeleton} />
+          <Skeleton className={cls.fieldsSkeleton} />
+          <Skeleton className={cls.fieldsSkeleton} />
+          <Skeleton className={cls.fieldsSkeleton} />
+        </div>
       </div>
     );
   }
@@ -126,53 +143,67 @@ export const ProfileEditCard = memo(({ className }: ProfileEditCardProps) => {
             theme={TextTheme.ERROR}
           />
         ))}
-      <div className={cls.field}>
-        <Text bold text={`${t("name")}:`} />
-        <Input
-          className={cls.input}
-          value={profileForm?.firstname}
-          onChange={onChangeFirstname}
-        />
-      </div>
-      <div className={cls.field}>
-        <Text bold text={`${t("lastname")}:`} />
-        <Input
-          className={cls.input}
-          value={profileForm?.lastname}
-          onChange={onChangeLastname}
-        />
-      </div>
-      <div className={cls.field}>
-        <Text bold text={`${t("country")}:`} />
-        <CountrySelect
-          className={cls.input}
-          value={profileForm?.country}
-          onChange={onChangeCountry}
-        />
-      </div>
-      <div className={cls.field}>
-        <Text bold text={`${t("city")}:`} />
-        <Input
-          className={cls.input}
-          value={profileForm?.city}
-          onChange={onChangeCity}
-        />
-      </div>
-      <div className={cls.field}>
-        <Text bold text={`${t("avatar")}:`} />
-        <Input
-          className={cls.input}
-          value={profileForm?.avatar}
-          onChange={onChangeAvatar}
-        />
-      </div>
-      <div className={cls.field}>
-        <Text bold text={`${t("dateOfBirth")}:`} />
-        <DateInput
-          className={cls.input}
-          value={profileForm?.dateOfBirth}
-          onChange={onChangeBirthday}
-        />
+      <div className={cls.fieldsWrapper}>
+        <div className={cls.field}>
+          <Input
+            className={cls.input}
+            placeholder={t("name")}
+            value={profileForm?.firstname}
+            onChange={onChangeFirstname}
+          />
+        </div>
+        <div className={cls.field}>
+          <Input
+            className={cls.input}
+            placeholder={t("lastname")}
+            value={profileForm?.lastname}
+            onChange={onChangeLastname}
+          />
+        </div>
+        <div className={cls.field}>
+          <CountrySelect
+            className={cls.input}
+            placeholder={t("country")}
+            value={profileForm?.country}
+            onChange={onChangeCountry}
+          />
+        </div>
+        <div className={cls.field}>
+          <Input
+            className={cls.input}
+            placeholder={t("city")}
+            value={profileForm?.city}
+            onChange={onChangeCity}
+          />
+        </div>
+        <div className={cls.field}>
+          <Input
+            className={cls.input}
+            placeholder={t("avatar")}
+            value={profileForm?.avatar}
+            onChange={onChangeAvatar}
+          />
+        </div>
+        <div className={cls.field}>
+          <Select
+            className={cls.input}
+            placeholder={t("sex")}
+            value={profileForm?.sex}
+            options={[
+              { value: SexTypes.MALE, content: t(SexTypes.MALE) },
+              { value: SexTypes.FEMALE, content: t(SexTypes.FEMALE) },
+            ]}
+            onChange={onChangeSex}
+          />
+        </div>
+        <div className={cls.field}>
+          <DateInput
+            className={cls.input}
+            placeholder={t("dateOfBirth")}
+            value={profileForm?.dateOfBirth}
+            onChange={onChangeBirthday}
+          />
+        </div>
       </div>
       <div className={cls.buttonWrapper}>
         <Button className={cls.button} onClick={onCancelChanges}>

@@ -4,12 +4,14 @@ import { useTranslation } from "react-i18next";
 import { memo } from "react";
 import { Text, TextAlign, TextTheme } from "shared/ui/Text/Text";
 import { useSelector } from "react-redux";
-import { getProfileData } from "../../model/selectors/getProfileData/getProfileData";
-import { getProfileIsLoading } from "../../model/selectors/getProfileIsLoading/getProfileIsLoading";
-import { Loader } from "shared/ui/Loader/Loader";
-import { getProfileError } from "entitiesModule/Profile/model/selectors/getProfileError/getProfileError";
 import { getAge } from "shared/lib/getAge/getAge";
 import { Avatar, AvatarSize } from "shared/ui/Avatar/Avatar";
+import {
+  getProfileData,
+  getProfileError,
+  getProfileIsLoading,
+} from "../../model/selectors/profileSelectors";
+import { Skeleton } from "shared/ui/Skeleton/Sceleton";
 
 interface ProfileMainCardProps {
   className?: string;
@@ -26,10 +28,18 @@ export const ProfileMainCard = memo(({ className }: ProfileMainCardProps) => {
 
   if (isLoading) {
     return (
-      <div
-        className={classNames(cls.profileMainCard, {}, [className, cls.noData])}
-      >
-        <Loader />
+      <div className={classNames(cls.profileMainCard, {}, [className])}>
+        <div className={cls.mainInfoWrapper}>
+          <Skeleton width={"250px"} height={"250px"} border={"20%"} />
+          <div className={cls.mainInfo}>
+            <Skeleton
+              className={cls.lastname}
+              height={"64px"}
+              width={"300px"}
+            />
+            <Skeleton height={"96px"} width={"350px"} />
+          </div>
+        </div>
       </div>
     );
   }
@@ -55,26 +65,34 @@ export const ProfileMainCard = memo(({ className }: ProfileMainCardProps) => {
 
   return (
     <div className={classNames(cls.profileMainCard, {}, [className])}>
-      <Avatar size={AvatarSize.LARGE} src={profileData?.avatar} />
-      <div className={cls.field}>
-        <Text bold text={`${t("name")}:`} />
-        <Text text={profileData?.firstname} />
-      </div>
-      <div className={cls.field}>
-        <Text bold text={`${t("lastname")}:`} />
-        <Text text={profileData?.lastname} />
-      </div>
-      <div className={cls.field}>
-        <Text bold text={`${t("country")}:`} />
-        <Text text={t(profileData?.country || "")} />
-      </div>
-      <div className={cls.field}>
-        <Text bold text={`${t("city")}:`} />
-        <Text text={profileData?.city} />
-      </div>
-      <div className={cls.field}>
-        <Text bold text={`${t("age")}:`} />
-        <Text text={age} />
+      <div className={cls.mainInfoWrapper}>
+        <Avatar size={AvatarSize.LARGE} src={profileData?.avatar} />
+        <div className={cls.mainInfo}>
+          <div className={cls.field}>
+            <Text bold title={`${t("name")}:`} />
+            <Text title={profileData?.firstname} />
+          </div>
+          <div className={classNames(cls.field, {}, [cls.lastname])}>
+            <Text bold title={`${t("lastname")}:`} />
+            <Text title={profileData?.lastname} />
+          </div>
+          <div className={cls.field}>
+            <Text bold text={`${t("country")}:`} />
+            <Text text={t(profileData?.country || "")} />
+          </div>
+          <div className={cls.field}>
+            <Text bold text={`${t("city")}:`} />
+            <Text text={profileData?.city} />
+          </div>
+          <div className={cls.field}>
+            <Text bold text={`${t("sex")}:`} />
+            <Text text={t(profileData?.sex || "")} />
+          </div>
+          <div className={cls.field}>
+            <Text bold text={`${t("age")}:`} />
+            <Text text={age} />
+          </div>
+        </div>
       </div>
     </div>
   );

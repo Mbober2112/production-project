@@ -4,14 +4,16 @@ import { Theme } from "app/providers/ThemeProvider";
 import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator";
 import { Countries } from "entitiesModule/Country";
 import { ProfileEditCard } from "./ProfileEditCard";
+import { SexTypes } from "entitiesModule/Profile/model/types/profile";
 
 const profileDataMock = {
   firstname: "Евгений",
   lastname: "Бобров",
-  country: Countries.Russia,
+  country: Countries.RUSSIA,
   city: "Нижний Новгород",
   avatar: "https://someUrl.com",
   dateOfBirth: new Date("1990-05-15T00:00:00Z").getTime(),
+  sex: SexTypes.MALE,
 };
 
 export default {

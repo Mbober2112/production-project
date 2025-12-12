@@ -6,7 +6,6 @@ import { Profile, ProfileSchema } from "../types/profile";
 const initialState: ProfileSchema = {
   data: undefined,
   isLoading: false,
-  readonly: true,
   error: undefined,
 };
 

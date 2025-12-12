@@ -1,0 +1,11 @@
+.whiskyDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.noData {
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+}

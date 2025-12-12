@@ -18,11 +18,11 @@ const Template: ComponentStory<typeof CountrySelect> = (args) => (
 
 export const PrimaryLight = Template.bind({});
 PrimaryLight.args = {
-  value: Countries.Russia,
+  value: Countries.RUSSIA,
 };
 
 export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {
-  value: Countries.Russia,
+  value: Countries.RUSSIA,
 };
 PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];

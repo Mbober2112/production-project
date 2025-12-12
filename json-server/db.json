@@ -18,6 +18,107 @@
       "postId": "1"
     }
   ],
+  "whisky": [
+    {
+      "id": "1",
+      "title": "Caol Ila 12 Years Old",
+      "description": "Some description",
+      "img": "",
+      "type": "Single Malt",
+      "country": "Scotland",
+      "alc": 43,
+      "createdAt": 123456654,
+      "updatedAt": 123456654
+    },
+    {
+      "id": "2",
+      "title": "Glenallachie 12 Years Old",
+      "description": "Some description",
+      "img": "",
+      "type": "Single Malt",
+      "country": "Scotland",
+      "alc": 46,
+      "createdAt": 123456654,
+      "updatedAt": 123456654
+    },
+    {
+      "id": "3",
+      "title": "Talisker 10 Years Old",
+      "description": "Some description",
+      "img": "",
+      "type": "Single Malt",
+      "country": "Scotland",
+      "alc": 45.8,
+      "createdAt": 123456654,
+      "updatedAt": 123456654
+    },
+    {
+      "id": "4",
+      "title": "Loch Lomond Single Malt 12 Years Old",
+      "description": "Some description",
+      "img": "",
+      "type": "Single Malt",
+      "country": "Scotland",
+      "alc": 46,
+      "createdAt": 123456654,
+      "updatedAt": 123456654
+    },
+    {
+      "id": "5",
+      "title": "Glen Scotia Double Cask Rum Cask Finish",
+      "description": "Some description",
+      "img": "",
+      "type": "Single Malt",
+      "country": "Scotland",
+      "alc": 46,
+      "createdAt": 123456654,
+      "updatedAt": 123456654
+    },
+    {
+      "id": "6",
+      "title": "Jura 10 Years Old",
+      "description": "Some description",
+      "img": "",
+      "type": "Single Malt",
+      "country": "Scotland",
+      "alc": 40,
+      "createdAt": 123456654,
+      "updatedAt": 123456654
+    },
+    {
+      "id": "7",
+      "title": "Johnnie Walker Black Label",
+      "description": "Some description",
+      "img": "",
+      "type": "Blended",
+      "country": "Scotland",
+      "alc": 40,
+      "createdAt": 123456654,
+      "updatedAt": 123456654
+    },
+    {
+      "id": "8",
+      "title": "Teacher's Highland Cream",
+      "description": "Some description",
+      "img": "",
+      "type": "Blended",
+      "country": "Scotland",
+      "alc": 40,
+      "createdAt": 123456654,
+      "updatedAt": 123456654
+    },
+    {
+      "id": "9",
+      "title": "Ballantines Finest",
+      "description": "Some description",
+      "img": "",
+      "type": "Blended",
+      "country": "Scotland",
+      "alc": 40,
+      "createdAt": 123456654,
+      "updatedAt": 123456654
+    }
+  ],
   "users": [
     {
       "id": "1",
@@ -29,10 +130,11 @@
     "firstname": "Евгений",
     "lastname": "Бобров",
     "dateOfBirth": 651110400000,
-    "country": "Russia",
+    "country": "USA",
     "city": "Нижний Новгород",
     "username": "admin",
     "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg",
-    "id": "1"
+    "id": "1",
+    "sex": "male"
   }
 }
