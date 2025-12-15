@@ -1,4 +1,10 @@
 {
   "fetchWhiskyDetailsError": "Whisky data loading error",
-  "tryToReloadPage": "Try to reload page"
+  "tryToReloadPage": "Try to reload page",
+  "country": "Country",
+  "Scotland": "Scotland",
+  "strength": "Strength",
+  "bottler": "Bottler",
+  "distillery": "Distillery",
+  "statedAge": "Staded age"
 }

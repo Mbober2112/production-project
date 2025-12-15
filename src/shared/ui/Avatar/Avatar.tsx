@@ -13,6 +13,7 @@ interface AvatarProps {
   className?: string;
   size?: AvatarSize;
   src?: string;
+  
 }
 
 export const Avatar = memo(

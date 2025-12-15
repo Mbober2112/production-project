@@ -9,3 +9,20 @@
   justify-content: center;
   height: 300px;
 }
+
+.mainInfoWrapper {
+  display: flex;
+  gap: 50px;
+}
+
+.mainInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.info {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+}

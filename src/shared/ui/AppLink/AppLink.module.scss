@@ -1,11 +1,11 @@
 .link {
   color: var(--primary-color);
   display: flex;
-}
 
-.link:hover {
-  color: var(--text-hover-color);
-  svg {
-    fill: var(--text-hover-color);
+  &:hover {
+    color: var(--text-hover-color);
+    svg {
+      fill: var(--text-hover-color);
+    }
   }
 }

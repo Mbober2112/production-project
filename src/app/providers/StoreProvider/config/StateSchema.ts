@@ -1,6 +1,7 @@
 import { EnhancedStore } from "@reduxjs/toolkit";
 import { AxiosInstance } from "axios";
 import { CounterSchema } from "entitiesModule/Counter";
+import { GameDetailsSchema } from "entitiesModule/Games/model/types/gameDetailsSchema";
 import { ProfileSchema } from "entitiesModule/Profile";
 import { UserSchema } from "entitiesModule/User";
 import { WhiskyDetailsSchema } from "entitiesModule/Whisky";
@@ -15,6 +16,7 @@ export interface StateSchema {
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   whiskyDetails?: WhiskyDetailsSchema;
+  gameDetails?: GameDetailsSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

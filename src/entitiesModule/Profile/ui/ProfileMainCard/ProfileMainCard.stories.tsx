@@ -18,7 +18,7 @@ const profileDataMock = {
 };
 
 export default {
-  title: "features/ProfileMainCard",
+  title: "entities/ProfileMainCard",
   component: ProfileMainCard,
   argTypes: {
     backgroundColor: { control: "color" },
@@ -35,7 +35,6 @@ Light.decorators = [StoreDecorator({ profile: { data: profileDataMock } })];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [];
 Dark.decorators = [
   StoreDecorator({ profile: { data: profileDataMock } }),
   ThemeDecorator(Theme.DARK),
@@ -47,7 +46,6 @@ LightError.decorators = [StoreDecorator({ profile: { error: "Some error" } })];
 
 export const DarkError = Template.bind({});
 DarkError.args = {};
-DarkError.decorators = [];
 DarkError.decorators = [
   StoreDecorator({ profile: { error: "Some error" } }),
   ThemeDecorator(Theme.DARK),
@@ -59,7 +57,6 @@ LightLoading.decorators = [StoreDecorator({ profile: { isLoading: true } })];
 
 export const DarkLoading = Template.bind({});
 DarkLoading.args = {};
-DarkLoading.decorators = [];
 DarkLoading.decorators = [
   StoreDecorator({ profile: { isLoading: true } }),
   ThemeDecorator(Theme.DARK),

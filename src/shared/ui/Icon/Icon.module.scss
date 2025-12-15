@@ -1,0 +1,7 @@
+.icon {
+  fill: var(--bg-color-inverted);
+
+  &:hover {
+    fill: var(--text-hover-color);
+  }
+}

@@ -17,7 +17,7 @@ const profileDataMock = {
 };
 
 export default {
-  title: "features/ProfileEditCard",
+  title: "entities/ProfileEditCard",
   component: ProfileEditCard,
   argTypes: {
     backgroundColor: { control: "color" },

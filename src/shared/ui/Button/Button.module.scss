@@ -6,6 +6,10 @@
   border-radius: 4px;
   padding: 4px 6px;
   font: var(--font-m);
+
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 .clear {

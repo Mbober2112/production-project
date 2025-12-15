@@ -18,4 +18,7 @@ export interface Whisky {
   updatedAt: number;
   description?: string;
   img?: string;
+  bottler?: string;
+  distillery?: string;
+  statedAge?: number;
 }

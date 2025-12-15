@@ -4,6 +4,7 @@ import EditIcon from "shared/assets/icons/pencil-edit.svg";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import { classNames } from "shared/lib/classNames/classNames";
 import { AppLink } from "shared/ui/AppLink/AppLink";
+import { Icon } from "shared/ui/Icon/Icon";
 import { Text } from "shared/ui/Text/Text";
 import cls from "./ProfilePageHeader.module.scss";
 
@@ -21,7 +22,7 @@ const ProfilePageHeader = memo(
         <Text title={t("profile")} />
         {canEdit && (
           <AppLink to={RoutePath.profile_edit}>
-            <EditIcon className={cls.icon} />
+            <Icon Svg={EditIcon} />
           </AppLink>
         )}
       </div>

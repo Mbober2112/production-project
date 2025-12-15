@@ -1,4 +1,11 @@
 {
   "fetchWhiskyDetailsError": "Ошибка загрузки информации",
-  "tryToReloadPage": "Попробуйте обновить страницу"
+  "tryToReloadPage": "Попробуйте обновить страницу",
+  "country": "Страна",
+  "Scotland": "Шотландия",
+  "strength": "Крепость",
+  "category": "Категория",
+  "bottler": "Боттлер",
+  "distillery": "Дистиллерия",
+  "statedAge": "Выдержка"
 }

@@ -72,3 +72,15 @@ TextAlignCenter.args = {
   text: "Some long text under title",
   align: TextAlign.CENTER,
 };
+
+export const TextWithOpacity = Template.bind({});
+TextWithOpacity.args = {
+  text: "Some long text under title",
+  opacity: true,
+};
+
+export const SmallText = Template.bind({});
+SmallText.args = {
+  text: "Some long text under title",
+  small: true,
+};

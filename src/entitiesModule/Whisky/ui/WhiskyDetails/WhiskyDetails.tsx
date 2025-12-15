@@ -15,8 +15,9 @@ import {
   getWhiskyDetailsError,
   getWhiskyDetailsIsLoading,
 } from "entitiesModule/Whisky/model/selectors/whiskyDetailsSelectors";
-import { Loader } from "shared/ui/Loader/Loader";
 import { Text, TextAlign, TextTheme } from "shared/ui/Text/Text";
+import { Avatar, AvatarSize } from "shared/ui/Avatar/Avatar";
+import { Skeleton } from "shared/ui/Skeleton/Sceleton";
 
 interface WhiskyDetailsProps {
   className?: string;
@@ -44,10 +45,31 @@ export const WhiskyDetails = memo(({ className, id }: WhiskyDetailsProps) => {
 
   if (isLoading) {
     content = (
-      <div
-        className={classNames(cls.whiskyDetails, {}, [className, cls.noData])}
-      >
-        <Loader />
+      <div className={classNames(cls.whiskyDetails, {}, [className])}>
+        <div className={cls.mainInfoWrapper}>
+          <Skeleton width={250} height={250} border={"20%"} />
+          <div className={cls.mainInfo}>
+            <Skeleton height={32} width={350} />
+            <div className={cls.info}>
+              <Skeleton width={200} height={24} />
+            </div>
+            <div className={cls.info}>
+              <Skeleton width={200} height={24} />
+            </div>
+            <div className={cls.info}>
+              <Skeleton width={200} height={24} />
+            </div>
+            <div className={cls.info}>
+              <Skeleton width={200} height={24} />
+            </div>
+            <div className={cls.info}>
+              <Skeleton width={200} height={24} />
+            </div>
+            <div className={cls.info}>
+              <Skeleton width={200} height={24} />
+            </div>
+          </div>
+        </div>
       </div>
     );
   } else if (isError) {
@@ -70,11 +92,36 @@ export const WhiskyDetails = memo(({ className, id }: WhiskyDetailsProps) => {
   } else {
     content = (
       <div className={classNames(cls.whiskyDetails, {}, [className])}>
-        <div>{whiskyDetails?.title}</div>
-        <div>{whiskyDetails?.description}</div>
-        <div>{whiskyDetails?.country}</div>
-        <div>{whiskyDetails?.alc}</div>
-        <div>{whiskyDetails?.type}</div>
+        <div className={cls.mainInfoWrapper}>
+          <Avatar src={whiskyDetails?.img} size={AvatarSize.LARGE} />
+          <div className={cls.mainInfo}>
+            <Text title={whiskyDetails?.title} />
+            <div className={cls.info}>
+              <Text small opacity text={`${t("country")}:`} />
+              <Text text={t(whiskyDetails?.country || "")} />
+            </div>
+            <div className={cls.info}>
+              <Text small opacity text={`${t("strength")}:`} />
+              <Text text={`${String(whiskyDetails?.alc)}%`} />
+            </div>
+            <div className={cls.info}>
+              <Text small opacity text={`${t("category")}:`} />
+              <Text text={whiskyDetails?.type} />
+            </div>
+            <div className={cls.info}>
+              <Text small opacity text={`${t("bottler")}:`} />
+              <Text text={whiskyDetails?.bottler} />
+            </div>
+            <div className={cls.info}>
+              <Text small opacity text={`${t("distillery")}:`} />
+              <Text text={whiskyDetails?.distillery} />
+            </div>
+            <div className={cls.info}>
+              <Text small opacity text={`${t("statedAge")}:`} />
+              <Text text={String(whiskyDetails?.statedAge)} />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
