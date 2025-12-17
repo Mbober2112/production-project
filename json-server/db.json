@@ -14,8 +14,15 @@
   "comments": [
     {
       "id": "1",
-      "body": "some comment",
-      "postId": "1"
+      "text": "some comment",
+      "whiskyId": "1",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "text": "some comment 2",
+      "whiskyId": "1",
+      "userId": "2"
     }
   ],
   "games": [
@@ -159,7 +166,14 @@
     {
       "id": "1",
       "username": "admin",
-      "password": "123"
+      "password": "123",
+      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+    },
+    {
+      "id": "2",
+      "username": "Alco",
+      "password": "1234",
+      "avatar": "https://yt3.googleusercontent.com/QW8ksHXf1uM6NSDs92y6a5ArcgVaKZm2x571Dmlt1s6w-GwZASTMnRMINsNu1IMDrDpyRzO9=s900-c-k-c0x00ffffff-no-rj"
     }
   ],
   "profile": {

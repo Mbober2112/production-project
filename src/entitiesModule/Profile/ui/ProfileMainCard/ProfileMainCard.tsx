@@ -69,27 +69,27 @@ export const ProfileMainCard = memo(({ className }: ProfileMainCardProps) => {
         <Avatar size={AvatarSize.LARGE} src={profileData?.avatar} />
         <div className={cls.mainInfo}>
           <div className={cls.field}>
-            <Text bold title={`${t("name")}:`} />
+            <Text opacity text={`${t("name")}:`} />
             <Text title={profileData?.firstname} />
           </div>
           <div className={classNames(cls.field, {}, [cls.lastname])}>
-            <Text bold title={`${t("lastname")}:`} />
+            <Text opacity text={`${t("lastname")}:`} />
             <Text title={profileData?.lastname} />
           </div>
           <div className={cls.field}>
-            <Text bold text={`${t("country")}:`} />
+            <Text small opacity text={`${t("country")}:`} />
             <Text text={t(profileData?.country || "")} />
           </div>
           <div className={cls.field}>
-            <Text bold text={`${t("city")}:`} />
+            <Text small opacity text={`${t("city")}:`} />
             <Text text={profileData?.city} />
           </div>
           <div className={cls.field}>
-            <Text bold text={`${t("sex")}:`} />
+            <Text small opacity text={`${t("sex")}:`} />
             <Text text={t(profileData?.sex || "")} />
           </div>
           <div className={cls.field}>
-            <Text bold text={`${t("age")}:`} />
+            <Text small opacity text={`${t("age")}:`} />
             <Text text={age} />
           </div>
         </div>

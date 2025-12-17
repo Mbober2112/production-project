@@ -1,6 +1,6 @@
 import { StateSchema } from "app/providers/StoreProvider";
 import { Countries } from "entitiesModule/Country";
-import { getProfileData } from "./getProfileData/getProfileData";
+import { getProfileData } from "./profileSelectors";
 
 describe("getProfileData", () => {
   test("should return profile data", () => {

@@ -17,6 +17,7 @@ import {
   getGameDetailsIsLoading,
 } from "entitiesModule/Games/model/selectors/gameDetailsSelector";
 import { fetchGameById } from "entitiesModule/Games/model/services/fetchGameById/fetchGameById";
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useItitialEffect";
 
 interface GameDetailsProps {
   className?: string;
@@ -34,11 +35,9 @@ export const GameDetails = memo(({ className, id }: GameDetailsProps) => {
   const isLoading = useSelector(getGameDetailsIsLoading);
   const isError = useSelector(getGameDetailsError);
 
-  useEffect(() => {
-    if (__PROJECT__ !== "storybook") {
-      dispatch(fetchGameById(id));
-    }
-  }, [dispatch, id]);
+  useInitialEffect(() => {
+    dispatch(fetchGameById(id));
+  });
 
   let content;
 

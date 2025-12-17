@@ -1,21 +1,21 @@
 import { EnhancedStore } from "@reduxjs/toolkit";
 import { AxiosInstance } from "axios";
-import { CounterSchema } from "entitiesModule/Counter";
 import { GameDetailsSchema } from "entitiesModule/Games/model/types/gameDetailsSchema";
 import { ProfileSchema } from "entitiesModule/Profile";
 import { UserSchema } from "entitiesModule/User";
 import { WhiskyDetailsSchema } from "entitiesModule/Whisky";
 import { LoginSchema } from "features/AuthByUsername";
+import { WhiskyDetailsCommentsSchema } from "pages/WhiskyDetailsPage";
 import { NavigateOptions, To } from "react-router-dom";
 import { AnyAction, CombinedState, Reducer, ReducersMapObject } from "redux";
 
 export interface StateSchema {
-  counter: CounterSchema;
   user: UserSchema;
   //async
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   whiskyDetails?: WhiskyDetailsSchema;
+  whiskyDetailsComments?: WhiskyDetailsCommentsSchema;
   gameDetails?: GameDetailsSchema;
 }
 

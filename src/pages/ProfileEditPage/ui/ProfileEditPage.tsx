@@ -7,6 +7,7 @@ import {
   ReducersList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useItitialEffect";
 import cls from "./ProfileEditPage.module.scss";
 import ProfileEditPageHeader from "./ProfileEditPageHeader/ProfileEditPageHeader";
 
@@ -21,11 +22,9 @@ interface ProfileEditPageProps {
 const ProfileEditPage = ({ className }: ProfileEditPageProps) => {
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    if (__PROJECT__ !== "storybook") {
-      dispatch(fetchProfileData());
-    }
-  }, [dispatch]);
+  useInitialEffect(() => {
+    dispatch(fetchProfileData());
+  });
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>

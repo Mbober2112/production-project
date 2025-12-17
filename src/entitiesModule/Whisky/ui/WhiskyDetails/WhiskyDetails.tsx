@@ -18,6 +18,7 @@ import {
 import { Text, TextAlign, TextTheme } from "shared/ui/Text/Text";
 import { Avatar, AvatarSize } from "shared/ui/Avatar/Avatar";
 import { Skeleton } from "shared/ui/Skeleton/Sceleton";
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useItitialEffect";
 
 interface WhiskyDetailsProps {
   className?: string;
@@ -35,11 +36,9 @@ export const WhiskyDetails = memo(({ className, id }: WhiskyDetailsProps) => {
   const isLoading = useSelector(getWhiskyDetailsIsLoading);
   const isError = useSelector(getWhiskyDetailsError);
 
-  useEffect(() => {
-    if (__PROJECT__ !== "storybook") {
-      dispatch(fetchWhiskyById(id));
-    }
-  }, [dispatch, id]);
+  useInitialEffect(() => {
+    dispatch(fetchWhiskyById(id));
+  });
 
   let content;
 
