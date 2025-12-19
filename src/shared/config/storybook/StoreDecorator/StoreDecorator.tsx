@@ -4,11 +4,13 @@ import { loginReducer } from "features/AuthByUsername/model/slice/loginSlice";
 import { profileReducer } from "entitiesModule/Profile";
 import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { whiskyDetailsReducer } from "entitiesModule/Whisky/model/slice/whiskyDetailsSlice";
+import { whiskyDetailsCommentsReducer } from "pages/WhiskyDetailsPage/model/slices/whiskyDetailsCommentSlice";
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: loginReducer,
   profile: profileReducer,
   whiskyDetails: whiskyDetailsReducer,
+  whiskyDetailsComments: whiskyDetailsCommentsReducer,
 };
 
 export const StoreDecorator =

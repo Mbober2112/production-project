@@ -6,5 +6,7 @@
   "strength": "Strength",
   "bottler": "Bottler",
   "distillery": "Distillery",
-  "statedAge": "Staded age"
+  "statedAge": "Staded age",
+  "comments": "Comments",
+  "noComments": "No comments"
 }

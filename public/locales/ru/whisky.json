@@ -7,5 +7,7 @@
   "category": "Категория",
   "bottler": "Боттлер",
   "distillery": "Дистиллерия",
-  "statedAge": "Выдержка"
+  "statedAge": "Выдержка",
+  "comments": "Комментарии",
+  "noComments": "Комментарии отсутствуют"
 }
