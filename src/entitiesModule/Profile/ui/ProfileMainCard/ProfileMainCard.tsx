@@ -68,13 +68,14 @@ export const ProfileMainCard = memo(({ className }: ProfileMainCardProps) => {
       <div className={cls.mainInfoWrapper}>
         <Avatar size={AvatarSize.LARGE} src={profileData?.avatar} />
         <div className={cls.mainInfo}>
+          <Text title={profileData?.username} className={cls.username} />
           <div className={cls.field}>
-            <Text opacity text={`${t("name")}:`} />
-            <Text title={profileData?.firstname} />
+            <Text opacity small text={`${t("name")}:`} />
+            <Text text={profileData?.firstname} />
           </div>
           <div className={classNames(cls.field, {}, [cls.lastname])}>
-            <Text opacity text={`${t("lastname")}:`} />
-            <Text title={profileData?.lastname} />
+            <Text opacity small text={`${t("lastname")}:`} />
+            <Text text={profileData?.lastname} />
           </div>
           <div className={cls.field}>
             <Text small opacity text={`${t("country")}:`} />

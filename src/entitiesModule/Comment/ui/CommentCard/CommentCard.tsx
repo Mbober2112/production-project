@@ -5,6 +5,8 @@ import { Text } from "shared/ui/Text/Text";
 import cls from "./CommentCard.module.scss";
 import { Comment } from "../../model/types/comment";
 import { Skeleton } from "shared/ui/Skeleton/Sceleton";
+import { AppLink } from "shared/ui/AppLink/AppLink";
+import { RoutePath } from "shared/config/routeConfig/routeConfig";
 
 interface CommentCardProps {
   className?: string;
@@ -16,12 +18,15 @@ export const CommentCard = memo((props: CommentCardProps) => {
 
   return (
     <div className={classNames(cls.commentCard, {}, [className])}>
-      <div className={cls.header}>
+      <AppLink
+        to={`${RoutePath.profile}${comment.user.id}`}
+        className={cls.header}
+      >
         {comment.user.avatar ? (
           <Avatar size={AvatarSize.MEDIUM} src={comment.user.avatar} />
         ) : null}
         <Text title={comment.user.username} />
-      </div>
+      </AppLink>
       <Text text={comment.text} />
     </div>
   );

@@ -2,9 +2,9 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
 import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator";
-import { Countries } from "entitiesModule/Country";
 import { ProfileEditCard } from "./ProfileEditCard";
 import { SexTypes } from "entitiesModule/Profile/model/types/profile";
+import { Countries } from "entitiesModule/Country";
 
 const profileDataMock = {
   firstname: "Евгений",
@@ -14,6 +14,8 @@ const profileDataMock = {
   avatar: "https://someUrl.com",
   dateOfBirth: new Date("1990-05-15T00:00:00Z").getTime(),
   sex: SexTypes.MALE,
+  username: "admin",
+  id: "1",
 };
 
 export default {
@@ -34,7 +36,6 @@ Light.decorators = [StoreDecorator({ profile: { form: profileDataMock } })];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [];
 Dark.decorators = [
   StoreDecorator({ profile: { form: profileDataMock } }),
   ThemeDecorator(Theme.DARK),
@@ -46,7 +47,6 @@ LightError.decorators = [StoreDecorator({ profile: { error: "Some error" } })];
 
 export const DarkError = Template.bind({});
 DarkError.args = {};
-DarkError.decorators = [];
 DarkError.decorators = [
   StoreDecorator({ profile: { error: "Some error" } }),
   ThemeDecorator(Theme.DARK),
@@ -58,7 +58,6 @@ LightLoading.decorators = [StoreDecorator({ profile: { isLoading: true } })];
 
 export const DarkLoading = Template.bind({});
 DarkLoading.args = {};
-DarkLoading.decorators = [];
 DarkLoading.decorators = [
   StoreDecorator({ profile: { isLoading: true } }),
   ThemeDecorator(Theme.DARK),

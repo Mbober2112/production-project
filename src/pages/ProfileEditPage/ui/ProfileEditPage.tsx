@@ -1,6 +1,8 @@
 import { fetchProfileData, profileReducer } from "entitiesModule/Profile";
 import { ProfileEditCard } from "entitiesModule/Profile/ui/ProfileEditCard/ProfileEditCard";
+import { getUserAuthData } from "entitiesModule/User";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { classNames } from "shared/lib/classNames/classNames";
 import {
   DynamicModuleLoader,
@@ -20,10 +22,13 @@ interface ProfileEditPageProps {
 }
 
 const ProfileEditPage = ({ className }: ProfileEditPageProps) => {
+  const user = useSelector(getUserAuthData);
   const dispatch = useAppDispatch();
 
   useInitialEffect(() => {
-    dispatch(fetchProfileData());
+    if (user?.id) {
+      dispatch(fetchProfileData(user.id));
+    }
   });
 
   return (

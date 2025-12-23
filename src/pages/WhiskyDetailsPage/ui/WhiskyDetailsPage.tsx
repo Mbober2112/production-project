@@ -1,5 +1,7 @@
 import { CommentList } from "entitiesModule/Comment/ui/CommentList/CommentList";
 import { WhiskyDetails } from "entitiesModule/Whisky";
+import { AddCommentForm } from "features/addCommentForm";
+import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -10,6 +12,7 @@ import {
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useItitialEffect";
 import { Text, TextAlign } from "shared/ui/Text/Text";
+import { addCommentForWhisky } from "../model/services/addCommentForWhisky/addCommentForWhisky";
 import { fetchCommentsByWhiskyId } from "../model/services/fetchCommentsByWhiskyId/fetchCommentsByWhiskyId";
 import {
   getWhiskyComments,
@@ -29,6 +32,13 @@ const WhiskyDetailsPage = () => {
 
   useInitialEffect(() => dispatch(fetchCommentsByWhiskyId(id)));
 
+  const onSendComment = useCallback(
+    (text: string) => {
+      dispatch(addCommentForWhisky(text));
+    },
+    [dispatch]
+  );
+
   if (!id) {
     return <div>{t("whiskyNotFound")}</div>;
   }
@@ -41,6 +51,7 @@ const WhiskyDetailsPage = () => {
         title={t("comments")}
         className={cls.commentsTitle}
       />
+      <AddCommentForm onSendComment={onSendComment} />
       <CommentList comments={comments} />
     </DynamicModuleLoader>
   );

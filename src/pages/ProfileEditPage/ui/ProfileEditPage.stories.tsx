@@ -15,6 +15,8 @@ const profileDataMock = {
   avatar: avatar,
   dateOfBirth: new Date("1990-05-15T00:00:00Z").getTime(),
   sex: SexTypes.MALE,
+  username: "admin",
+  id: "1",
 };
 
 export default {

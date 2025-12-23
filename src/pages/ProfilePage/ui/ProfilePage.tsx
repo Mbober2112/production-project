@@ -1,6 +1,8 @@
 import { fetchProfileData, profileReducer } from "entitiesModule/Profile";
 import { ProfileMainCard } from "entitiesModule/Profile/ui/ProfileMainCard/ProfileMainCard";
-import { useEffect } from "react";
+import { getUserAuthData } from "entitiesModule/User";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import { classNames } from "shared/lib/classNames/classNames";
 import {
   DynamicModuleLoader,
@@ -20,16 +22,20 @@ interface ProfilePageProps {
 }
 
 const ProfilePage = ({ className }: ProfilePageProps) => {
+  const { id } = useParams<{ id: string }>();
+  const user = useSelector(getUserAuthData);
   const dispatch = useAppDispatch();
 
   useInitialEffect(() => {
-    dispatch(fetchProfileData());
+    if (id) {
+      dispatch(fetchProfileData(id));
+    }
   });
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <div className={classNames(cls.profilePage, {}, [className])}>
-        <ProfilePageHeader canEdit />
+        <ProfilePageHeader canEdit={id === user?.id} />
         <ProfileMainCard />
       </div>
     </DynamicModuleLoader>

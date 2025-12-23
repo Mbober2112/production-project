@@ -5,12 +5,10 @@ import { memo, useCallback } from "react";
 import { Text, TextAlign, TextTheme } from "shared/ui/Text/Text";
 import { useSelector } from "react-redux";
 import { Input } from "shared/ui/Input/Input";
-import { Loader } from "shared/ui/Loader/Loader";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { profileActions } from "../../model/slice/profileSlice";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { updateProfileData } from "../../model/services/updateProfileData/updateProfileData";
-import { Countries, CountrySelect } from "entitiesModule/Country";
 import { SexTypes, ValidateProfileError } from "../../model/types/profile";
 import { DateInput } from "shared/ui/DateInput/DateInput";
 import {
@@ -21,6 +19,7 @@ import {
 } from "../../model/selectors/profileSelectors";
 import { Select } from "shared/ui/Select/Select";
 import { Skeleton } from "shared/ui/Skeleton/Sceleton";
+import { Countries, CountrySelect } from "entitiesModule/Country";
 
 interface ProfileEditCardProps {
   className?: string;
@@ -96,8 +95,10 @@ export const ProfileEditCard = memo(({ className }: ProfileEditCardProps) => {
   }, [dispatch]);
 
   const onSaveChanges = useCallback(() => {
-    dispatch(updateProfileData());
-  }, [dispatch]);
+    if (profileForm?.id) {
+      dispatch(updateProfileData(profileForm?.id));
+    }
+  }, [dispatch, profileForm]);
 
   if (isLoading) {
     return (

@@ -3,9 +3,9 @@ import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from "app/providers/ThemeProvider";
 import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator";
 import { ProfileMainCard } from "./ProfileMainCard";
-import { Countries } from "entitiesModule/Country";
 import avatar from "shared/assets/tests/storybook.png";
 import { SexTypes } from "entitiesModule/Profile/model/types/profile";
+import { Countries } from "entitiesModule/Country";
 
 const profileDataMock = {
   firstname: "Евгений",
@@ -15,6 +15,8 @@ const profileDataMock = {
   avatar: avatar,
   dateOfBirth: new Date("1990-05-15T00:00:00Z").getTime(),
   sex: SexTypes.MALE,
+  username: "admin",
+  id: "1",
 };
 
 export default {

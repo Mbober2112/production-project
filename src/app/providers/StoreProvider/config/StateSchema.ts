@@ -4,6 +4,7 @@ import { GameDetailsSchema } from "entitiesModule/Games/model/types/gameDetailsS
 import { ProfileSchema } from "entitiesModule/Profile";
 import { UserSchema } from "entitiesModule/User";
 import { WhiskyDetailsSchema } from "entitiesModule/Whisky";
+import { AddCommentFormSchema } from "features/addCommentForm";
 import { LoginSchema } from "features/AuthByUsername";
 import { WhiskyDetailsCommentsSchema } from "pages/WhiskyDetailsPage";
 import { NavigateOptions, To } from "react-router-dom";
@@ -17,6 +18,7 @@ export interface StateSchema {
   whiskyDetails?: WhiskyDetailsSchema;
   whiskyDetailsComments?: WhiskyDetailsCommentsSchema;
   gameDetails?: GameDetailsSchema;
+  addCommentForm?: AddCommentFormSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

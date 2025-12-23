@@ -23,6 +23,12 @@
       "text": "some comment 2",
       "whiskyId": "1",
       "userId": "2"
+    },
+    {
+      "whiskyId": "1",
+      "userId": "2",
+      "text": "New text",
+      "id": "nT98iq0"
     }
   ],
   "games": [
@@ -31,7 +37,9 @@
       "title": "Red dead redemption 2",
       "description": "Some description",
       "img": "",
-      "genre": ["Action"],
+      "genre": [
+        "Action"
+      ],
       "developer": "Rockstar Studios",
       "publisher": "Rockstar Games",
       "country": "USA",
@@ -176,15 +184,28 @@
       "avatar": "https://decanter.ru/image/379124-bokaly-glencairn-keep-calm-have-a-dram-0-19-l-mb.jpg"
     }
   ],
-  "profile": {
-    "firstname": "Евгений",
-    "lastname": "Бобров",
-    "dateOfBirth": 651110400000,
-    "country": "USA",
-    "city": "Нижний Новгород",
-    "username": "admin",
-    "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg",
-    "id": "1",
-    "sex": "male"
-  }
+  "profile": [
+    {
+      "firstname": "Евгений",
+      "lastname": "Бобров",
+      "dateOfBirth": 651110400000,
+      "country": "USA",
+      "city": "Нижний Новгород",
+      "username": "admin",
+      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg",
+      "id": "1",
+      "sex": "male"
+    },
+    {
+      "firstname": "Андрей",
+      "lastname": "Парфюмов",
+      "dateOfBirth": 602985600000,
+      "country": "USA",
+      "city": "Москва",
+      "username": "Alco",
+      "avatar": "https://decanter.ru/image/379124-bokaly-glencairn-keep-calm-have-a-dram-0-19-l-mb.jpg",
+      "id": "2",
+      "sex": "male"
+    }
+  ]
 }

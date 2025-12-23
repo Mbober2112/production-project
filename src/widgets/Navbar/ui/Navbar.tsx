@@ -43,7 +43,10 @@ export const Navbar = memo(({ className }: NavbarProps) => {
       <LangSwitcher />
       {authData ? (
         <div className={classNames(cls.profileWrapper)}>
-          <AppLink to={RoutePath.profile} className={classNames(cls.profile)}>
+          <AppLink
+            to={`${RoutePath.profile}${authData.id}`}
+            className={classNames(cls.profile)}
+          >
             <span className={classNames(cls.link)}>Профиль</span>
           </AppLink>
           <Button data-testid="navbar-enter-button" onClick={onLogout}>
