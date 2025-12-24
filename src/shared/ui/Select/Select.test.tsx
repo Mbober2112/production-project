@@ -1,5 +1,5 @@
 import { userEvent } from "@storybook/testing-library";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { Select } from "./Select";
 
 describe("Select", () => {

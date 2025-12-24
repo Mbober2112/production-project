@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes, memo, useState } from "react";
+import React, { InputHTMLAttributes, memo } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./DateInput.module.scss";
 

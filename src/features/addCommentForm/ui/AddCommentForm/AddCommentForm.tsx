@@ -18,6 +18,9 @@ import {
   getAddCommentFormText,
 } from "../../model/selectors/addCommentFormSelectors";
 import cls from "./AddCommentForm.module.scss";
+import { Textarea } from "shared/ui/Textarea/Textarea";
+import { Avatar, AvatarSize } from "shared/ui/Avatar/Avatar";
+import { getUserAuthData } from "entitiesModule/User";
 
 export interface AddCommentFormProps {
   className?: string;
@@ -32,6 +35,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
   const { className, onSendComment } = props;
   const { t } = useTranslation();
   const text = useSelector(getAddCommentFormText);
+  const user = useSelector(getUserAuthData);
   const dispatch = useAppDispatch();
 
   const onCommentTextChange = useCallback(
@@ -49,8 +53,9 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
   return (
     <DynamicModuleLoader reducers={reducers}>
       <div className={classNames(cls.AddCommentForm, {}, [className])}>
-        <Input
-          className={cls.input}
+        <Avatar src={user?.avatar} size={AvatarSize.MEDIUM} />
+        <Textarea
+          className={cls.textarea}
           placeholder={t("enterComment")}
           value={text}
           onChange={onCommentTextChange}

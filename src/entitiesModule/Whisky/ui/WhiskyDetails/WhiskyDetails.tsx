@@ -1,7 +1,7 @@
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./WhiskyDetails.module.scss";
 import { useTranslation } from "react-i18next";
-import { memo, useEffect } from "react";
+import { memo } from "react";
 import {
   DynamicModuleLoader,
   ReducersList,
