@@ -4,7 +4,7 @@ import { loginReducer } from "features/AuthByUsername/model/slice/loginSlice";
 import { profileReducer } from "entitiesModule/Profile";
 import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { whiskyDetailsReducer } from "entitiesModule/Whisky/model/slice/whiskyDetailsSlice";
-import { whiskyDetailsCommentsReducer } from "pages/WhiskyDetailsPage/model/slices/whiskyDetailsCommentSlice";
+import { whiskyDetailsCommentsReducer } from "pages/WhiskyDetailsPage/model/slices/whiskyDetailsCommentsSlice";
 import { addCommentFormReducer } from "features/addCommentForm/model/slices/addCommentFormSlice";
 
 const defaultAsyncReducers: ReducersList = {

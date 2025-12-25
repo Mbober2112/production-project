@@ -17,7 +17,7 @@ import { fetchCommentsByWhiskyId } from "../model/services/fetchCommentsByWhisky
 import {
   getWhiskyComments,
   whiskyDetailsCommentsReducer,
-} from "../model/slices/whiskyDetailsCommentSlice";
+} from "../model/slices/whiskyDetailsCommentsSlice";
 import cls from "./WhiskyDetailsPage.module.scss";
 
 const reducers: ReducersList = {
