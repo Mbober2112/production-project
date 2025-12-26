@@ -3,3 +3,15 @@
   flex-direction: column;
   gap: 20px;
 }
+
+.skeletonWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.commentHeaderWrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}

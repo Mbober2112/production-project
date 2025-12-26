@@ -1,14 +1,14 @@
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 import { addCommentForWhisky } from "./addCommentForWhisky";
-import { Comment } from "entitiesModule/Comment";
 import { WhiskyType } from "entitiesModule/Whisky/model/types/whisky";
 import { Countries } from "entitiesModule/Country";
-import { fetchCommentsByWhiskyId } from "../fetchCommentsByWhiskyId/fetchCommentsByWhiskyId";
 
+const date = Date.now();
 const newComment = {
   id: "5",
   text: "New comment text",
   whiskyId: "1",
+  createdAt: date,
 };
 
 const userAuthData = {
@@ -43,12 +43,13 @@ describe("addCommentForWhisky", () => {
     });
 
     thunk.api.post.mockReturnValue(Promise.resolve({ data: newComment }));
-    const result = await thunk.callThunk("New comment text");
+    const result = await thunk.callThunk({ text: "New comment text", date });
 
     expect(thunk.api.post).toHaveBeenCalledWith("/comments", {
       whiskyId: whiskyDetailsData.id,
       userId: userAuthData.id,
       text: "New comment text",
+      createdAt: date,
     });
     expect(result.meta.requestStatus).toBe("fulfilled");
     expect(result.payload).toEqual(newComment);
@@ -63,7 +64,7 @@ describe("addCommentForWhisky", () => {
       },
     });
 
-    const result = await thunk.callThunk("New comment text");
+    const result = await thunk.callThunk({ text: "New comment text", date });
 
     expect(thunk.api.post).not.toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe("rejected");
@@ -76,7 +77,7 @@ describe("addCommentForWhisky", () => {
       },
     });
 
-    const result = await thunk.callThunk("New comment text");
+    const result = await thunk.callThunk({ text: "New comment text", date });
 
     expect(thunk.api.post).not.toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe("rejected");
@@ -94,7 +95,7 @@ describe("addCommentForWhisky", () => {
 
     thunk.api.post.mockReturnValue(Promise.resolve({ status: 500 }));
 
-    const result = await thunk.callThunk("New comment text");
+    const result = await thunk.callThunk({ text: "New comment text", date });
 
     expect(thunk.api.post).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe("rejected");

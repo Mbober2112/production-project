@@ -5,17 +5,20 @@ import { Comment } from "entitiesModule/Comment";
 import { getWhiskyDetailsData } from "entitiesModule/Whisky/model/selectors/whiskyDetailsSelectors";
 import { fetchCommentsByWhiskyId } from "../fetchCommentsByWhiskyId/fetchCommentsByWhiskyId";
 
+type AddCommentArgs = { text: string; date: number };
+
 export const addCommentForWhisky = createAsyncThunk<
   Comment,
-  string,
+  AddCommentArgs,
   ThunkConfig<string>
->("whiskyDetails/addCommentForWhisky", async (text, thunkApi) => {
+>("whiskyDetails/addCommentForWhisky", async (args, thunkApi) => {
   const { extra, dispatch, rejectWithValue, getState } = thunkApi;
+  const { text, date } = args;
 
   const userData = getUserAuthData(getState());
   const whisky = getWhiskyDetailsData(getState());
 
-  if (!userData || !text || !whisky) {
+  if (!userData || !text || !whisky || !date) {
     return rejectWithValue("no data");
   }
 
@@ -23,6 +26,7 @@ export const addCommentForWhisky = createAsyncThunk<
     const response = await extra.api.post<Comment>("/comments", {
       whiskyId: whisky.id,
       userId: userData.id,
+      createdAt: date,
       text,
     });
 

@@ -13,28 +13,32 @@
   ],
   "comments": [
     {
-      "id": "1",
-      "text": "some comment",
-      "whiskyId": "1",
-      "userId": "1"
-    },
-    {
-      "id": "2",
-      "text": "some comment 2",
-      "whiskyId": "1",
-      "userId": "2"
-    },
-    {
-      "whiskyId": "1",
+      "whiskyId": "2",
       "userId": "2",
-      "text": "New text",
-      "id": "nT98iq0"
+      "createdAt": 1766740718805,
+      "text": "New comment",
+      "id": "3KVZZMr"
     },
     {
-      "whiskyId": "1",
-      "userId": "2",
-      "text": "wwwwwwww",
-      "id": "2war2-x"
+      "whiskyId": "2",
+      "userId": "1",
+      "createdAt": 1766749385328,
+      "text": "asfsdg",
+      "id": "mSU232C"
+    },
+    {
+      "whiskyId": "2",
+      "userId": "1",
+      "createdAt": 1766751609368,
+      "text": "asafsfasgsdhdfh",
+      "id": "-26NBGd"
+    },
+    {
+      "whiskyId": "2",
+      "userId": "1",
+      "createdAt": 1766751855785,
+      "text": "ssssss",
+      "id": "oGMolcM"
     }
   ],
   "games": [

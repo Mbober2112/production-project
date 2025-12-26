@@ -18,14 +18,28 @@ const Template: ComponentStory<typeof AddCommentForm> = (args) => (
   <AddCommentForm {...args} />
 );
 
-export const PrimaryLight = Template.bind({});
-PrimaryLight.args = {
+export const Light = Template.bind({});
+Light.args = {
   onSendComment: action("onSendComment"),
 };
-PrimaryLight.decorators = [StoreDecorator({})];
+Light.decorators = [StoreDecorator({})];
 
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
+export const Dark = Template.bind({});
+Dark.args = {
   onSendComment: action("onSendComment"),
 };
-PrimaryDark.decorators = [StoreDecorator({}), ThemeDecorator(Theme.DARK)];
+Dark.decorators = [StoreDecorator({}), ThemeDecorator(Theme.DARK)];
+
+export const LightLoading = Template.bind({});
+LightLoading.args = {
+  isLoading: true,
+  onSendComment: action("onSendComment"),
+};
+LightLoading.decorators = [StoreDecorator({})];
+
+export const DarkLoading = Template.bind({});
+DarkLoading.args = {
+  isLoading: true,
+  onSendComment: action("onSendComment"),
+};
+DarkLoading.decorators = [StoreDecorator({}), ThemeDecorator(Theme.DARK)];

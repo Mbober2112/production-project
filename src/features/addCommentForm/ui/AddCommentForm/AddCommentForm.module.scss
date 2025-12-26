@@ -1,4 +1,4 @@
-.AddCommentForm {
+.addCommentForm {
   padding: 20px;
   display: flex;
   align-items: flex-end;
@@ -8,4 +8,8 @@
 
 .textarea {
   flex-grow: 1;
+}
+
+.avatarSkeleton {
+  flex-shrink: 0;
 }

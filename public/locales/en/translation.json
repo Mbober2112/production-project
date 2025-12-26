@@ -27,5 +27,8 @@
   "books": "Books",
   "games": "Games",
   "send": "Send",
-  "enterComment": "Enter your comment text"
+  "enterComment": "Enter your comment text",
+  "noCommentsYet": "No comments yet...",
+  "now": "just now",
+  "ago": "ago"
 }

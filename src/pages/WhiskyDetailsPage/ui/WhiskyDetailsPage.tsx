@@ -12,6 +12,7 @@ import {
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useItitialEffect";
 import { Text, TextAlign } from "shared/ui/Text/Text";
+import { getWhiskyDetailsCommentsIsLoading } from "../model/selectors/comments";
 import { addCommentForWhisky } from "../model/services/addCommentForWhisky/addCommentForWhisky";
 import { fetchCommentsByWhiskyId } from "../model/services/fetchCommentsByWhiskyId/fetchCommentsByWhiskyId";
 import {
@@ -29,12 +30,14 @@ const WhiskyDetailsPage = () => {
   const { id } = useParams<{ id: string }>();
   const dispatch = useAppDispatch();
   const comments = useSelector(getWhiskyComments.selectAll);
+  const commentsIsLoading = useSelector(getWhiskyDetailsCommentsIsLoading);
 
   useInitialEffect(() => dispatch(fetchCommentsByWhiskyId(id)));
 
   const onSendComment = useCallback(
     (text: string) => {
-      dispatch(addCommentForWhisky(text));
+      const date = Date.now();
+      dispatch(addCommentForWhisky({ text, date }));
     },
     [dispatch]
   );
@@ -51,8 +54,11 @@ const WhiskyDetailsPage = () => {
         title={t("comments")}
         className={cls.commentsTitle}
       />
-      <AddCommentForm onSendComment={onSendComment} />
-      <CommentList comments={comments} />
+      <AddCommentForm
+        isLoading={commentsIsLoading}
+        onSendComment={onSendComment}
+      />
+      <CommentList isLoading={commentsIsLoading} comments={comments} />
     </DynamicModuleLoader>
   );
 };

@@ -48,7 +48,7 @@ export const WhiskyDetails = memo(({ className, id }: WhiskyDetailsProps) => {
         <div className={cls.mainInfoWrapper}>
           <Skeleton width={250} height={250} border={"20%"} />
           <div className={cls.mainInfo}>
-            <Skeleton height={32} width={350} />
+            <Skeleton height={28} width={350} />
             <div className={cls.info}>
               <Skeleton width={200} height={24} />
             </div>

@@ -21,9 +21,11 @@ import cls from "./AddCommentForm.module.scss";
 import { Textarea } from "shared/ui/Textarea/Textarea";
 import { Avatar, AvatarSize } from "shared/ui/Avatar/Avatar";
 import { getUserAuthData } from "entitiesModule/User";
+import { Skeleton } from "shared/ui/Skeleton/Sceleton";
 
 export interface AddCommentFormProps {
   className?: string;
+  isLoading?: boolean;
   onSendComment: (text: string) => void;
 }
 
@@ -31,39 +33,55 @@ const reducers: ReducersList = {
   addCommentForm: addCommentFormReducer,
 };
 
-const AddCommentForm = memo((props: AddCommentFormProps) => {
-  const { className, onSendComment } = props;
-  const { t } = useTranslation();
-  const text = useSelector(getAddCommentFormText);
-  const user = useSelector(getUserAuthData);
-  const dispatch = useAppDispatch();
+const AddCommentForm = memo(
+  ({ className, isLoading, onSendComment }: AddCommentFormProps) => {
+    const { t } = useTranslation();
+    const text = useSelector(getAddCommentFormText);
+    const user = useSelector(getUserAuthData);
+    const dispatch = useAppDispatch();
 
-  const onCommentTextChange = useCallback(
-    (value: string) => {
-      dispatch(addCommentFormActions.setText(value));
-    },
-    [dispatch]
-  );
+    const onCommentTextChange = useCallback(
+      (value: string) => {
+        dispatch(addCommentFormActions.setText(value));
+      },
+      [dispatch]
+    );
 
-  const onSendHandler = useCallback(() => {
-    onSendComment(text || "");
-    onCommentTextChange("");
-  }, [onCommentTextChange, onSendComment, text]);
+    const onSendHandler = useCallback(() => {
+      onSendComment(text || "");
+      onCommentTextChange("");
+    }, [onCommentTextChange, onSendComment, text]);
 
-  return (
-    <DynamicModuleLoader reducers={reducers}>
-      <div className={classNames(cls.AddCommentForm, {}, [className])}>
-        <Avatar src={user?.avatar} size={AvatarSize.MEDIUM} />
-        <Textarea
-          className={cls.textarea}
-          placeholder={t("enterComment")}
-          value={text}
-          onChange={onCommentTextChange}
-        />
-        <Button onClick={onSendHandler}>{t("send")}</Button>
-      </div>
-    </DynamicModuleLoader>
-  );
-});
+    if (isLoading) {
+      return (
+        <div className={classNames(cls.addCommentForm, {}, [className])}>
+          <Skeleton
+            width={50}
+            height={50}
+            border={"20%"}
+            className={cls.avatarSkeleton}
+          />
+          <Skeleton className={cls.textarea} />
+          <Skeleton width={100} height={28} />
+        </div>
+      );
+    }
+
+    return (
+      <DynamicModuleLoader reducers={reducers}>
+        <div className={classNames(cls.addCommentForm, {}, [className])}>
+          <Avatar src={user?.avatar} size={AvatarSize.MEDIUM} />
+          <Textarea
+            className={cls.textarea}
+            placeholder={t("enterComment")}
+            value={text}
+            onChange={onCommentTextChange}
+          />
+          <Button onClick={onSendHandler}>{t("send")}</Button>
+        </div>
+      </DynamicModuleLoader>
+    );
+  }
+);
 
 export default AddCommentForm;

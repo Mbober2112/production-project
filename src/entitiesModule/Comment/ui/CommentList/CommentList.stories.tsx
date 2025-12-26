@@ -17,8 +17,8 @@ const Template: ComponentStory<typeof CommentList> = (args) => (
   <CommentList {...args} />
 );
 
-export const PrimaryLight = Template.bind({});
-PrimaryLight.args = {
+export const Light = Template.bind({});
+Light.args = {
   comments: [
     {
       id: "1",
@@ -43,8 +43,8 @@ PrimaryLight.args = {
   ],
 };
 
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
+export const Dark = Template.bind({});
+Dark.args = {
   comments: [
     {
       id: "1",
@@ -61,4 +61,16 @@ PrimaryDark.args = {
   ],
 };
 
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const LightLoading = Template.bind({});
+LightLoading.args = {
+  isLoading: true,
+};
+
+export const DarkLoading = Template.bind({});
+DarkLoading.args = {
+  isLoading: true,
+};
+
+DarkLoading.decorators = [ThemeDecorator(Theme.DARK)];

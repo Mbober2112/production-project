@@ -29,7 +29,7 @@ const whiskyDetailsCommentsSlice = createSlice({
     builder
       .addCase(fetchCommentsByWhiskyId.pending, (state) => {
         state.error = undefined;
-        state.isLoading = true;
+        state.isLoading = !state.ids.length && true;
       })
       .addCase(
         fetchCommentsByWhiskyId.fulfilled,
