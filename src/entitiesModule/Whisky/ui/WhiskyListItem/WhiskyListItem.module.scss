@@ -1,0 +1,46 @@
+.whiskyListItemBadge {
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+  cursor: pointer;
+  transition: 0.2s;
+
+  .avatar {
+    border-radius: 6px;
+    margin-bottom: 10px;
+  }
+
+  .title {
+    height: 48px;
+  }
+
+  &:hover {
+    opacity: 0.8;
+    transform: scale(1.01);
+  }
+}
+
+.whiskyListItemList {
+  display: flex;
+  cursor: pointer;
+  transition: 0.2s;
+  gap: 10px;
+
+  img {
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+    background-color: white;
+    border-radius: 6px;
+  }
+
+  .whiskyInfoWrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &:hover {
+    opacity: 0.8;
+    transform: scale(1.01);
+  }
+}

@@ -26,7 +26,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
           className={cls.link}
         >
           {comment.user.avatar ? (
-            <Avatar size={AvatarSize.MEDIUM} src={comment.user.avatar} />
+            <Avatar size={AvatarSize.SMALL} src={comment.user.avatar} />
           ) : null}
           <Text title={comment.user.username} />
         </AppLink>

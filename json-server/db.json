@@ -39,6 +39,13 @@
       "createdAt": 1766751855785,
       "text": "ssssss",
       "id": "oGMolcM"
+    },
+    {
+      "whiskyId": "1",
+      "userId": "1",
+      "createdAt": 1766987331261,
+      "text": "dsdgsdhsdf",
+      "id": "pEJF3I3"
     }
   ],
   "games": [
@@ -47,9 +54,7 @@
       "title": "Red dead redemption 2",
       "description": "Some description",
       "img": "",
-      "genre": [
-        "Action"
-      ],
+      "genre": ["Action"],
       "developer": "Rockstar Studios",
       "publisher": "Rockstar Games",
       "country": "USA",
@@ -171,7 +176,7 @@
       "id": "9",
       "title": "Ballantines Finest",
       "description": "Some description",
-      "img": "https://whiskyworld.ru/upload/dev2fun.imagecompress/webp/iblock/6cb/oozqr12fgdrw31rsmw00wphotpw1strn.webp",
+      "img": "https://luding.ru/upload/iblock/d26/d26b8a9ecad156ccd74e395b6f009e40.png",
       "bottler": "George Ballantine & Son",
       "type": "Blended",
       "country": "Scotland",

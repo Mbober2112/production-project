@@ -104,13 +104,9 @@ export const ProfileEditCard = memo(({ className }: ProfileEditCardProps) => {
     return (
       <div className={classNames(cls.profileEditCard, {}, [className])}>
         <div className={cls.fieldsWrapper}>
-          <Skeleton className={cls.fieldsSkeleton} />
-          <Skeleton className={cls.fieldsSkeleton} />
-          <Skeleton className={cls.fieldsSkeleton} />
-          <Skeleton className={cls.fieldsSkeleton} />
-          <Skeleton className={cls.fieldsSkeleton} />
-          <Skeleton className={cls.fieldsSkeleton} />
-          <Skeleton className={cls.fieldsSkeleton} />
+          {new Array(7).fill(0).map((el, index) => (
+            <Skeleton key={index} className={cls.fieldsSkeleton} />
+          ))}
         </div>
       </div>
     );
@@ -140,6 +136,7 @@ export const ProfileEditCard = memo(({ className }: ProfileEditCardProps) => {
       {validateErrors?.length &&
         validateErrors.map((error) => (
           <Text
+            key={error}
             text={validateProfileTranslations[error]}
             theme={TextTheme.ERROR}
           />

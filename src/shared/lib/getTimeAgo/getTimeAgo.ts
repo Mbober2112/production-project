@@ -1,21 +1,6 @@
 import { useTranslation } from "react-i18next";
+import { EN_AGE_FORMS, RU_AGE_FORMS, Unit } from "shared/const/common";
 import { TextPluralEn, TextPluralRu } from "../textPlural/textPlural";
-
-const RU_FORMS: Record<string, [string, string, string]> = {
-  ["minute"]: ["минута", "минуты", "минут"],
-  ["hour"]: ["час", "часа", "часов"],
-  ["day"]: ["день", "дня", "дней"],
-  ["month"]: ["месяц", "месяца", "месяцев"],
-  ["year"]: ["год", "года", "лет"],
-};
-
-const EN_FORMS: Record<string, [string, string]> = {
-  ["minute"]: ["minute", "minutes"],
-  ["hour"]: ["hour", "hours"],
-  ["day"]: ["day", "days"],
-  ["month"]: ["month", "months"],
-  ["year"]: ["year", "years"],
-};
 
 export function getTimeAgo(date: number, locale = "ru"): string {
   const { t } = useTranslation();
@@ -31,16 +16,13 @@ export function getTimeAgo(date: number, locale = "ru"): string {
     return t("now");
   }
 
-  const format = (
-    value: number,
-    unit: "minute" | "hour" | "day" | "month" | "year"
-  ) => {
+  const format = (value: number, unit: Unit) => {
     if (locale === "ru") {
-      const word = TextPluralRu(value, RU_FORMS[unit]);
+      const word = TextPluralRu(value, RU_AGE_FORMS[unit]);
       return `${value} ${word} ${t("ago")}`;
     }
 
-    const word = TextPluralEn(value, EN_FORMS[unit]);
+    const word = TextPluralEn(value, EN_AGE_FORMS[unit]);
     return `${value} ${word} ${t("ago")}`;
   };
 

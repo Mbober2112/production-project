@@ -12,13 +12,15 @@ import {
   getProfileIsLoading,
 } from "../../model/selectors/profileSelectors";
 import { Skeleton } from "shared/ui/Skeleton/Sceleton";
+import { TextPluralEn, TextPluralRu } from "shared/lib/textPlural/textPlural";
+import { EN_AGE_FORMS, RU_AGE_FORMS } from "shared/const/common";
 
 interface ProfileMainCardProps {
   className?: string;
 }
 
 export const ProfileMainCard = memo(({ className }: ProfileMainCardProps) => {
-  const { t } = useTranslation("profile");
+  const { t, i18n } = useTranslation("profile");
   const profileData = useSelector(getProfileData);
   const isLoading = useSelector(getProfileIsLoading);
   const isError = useSelector(getProfileError);
@@ -91,7 +93,17 @@ export const ProfileMainCard = memo(({ className }: ProfileMainCardProps) => {
           </div>
           <div className={cls.field}>
             <Text small opacity text={`${t("age")}:`} />
-            <Text text={age} />
+            {age ? (
+              <Text
+                text={`${age} ${
+                  i18n.language === "ru"
+                    ? TextPluralRu(Number(age), RU_AGE_FORMS["year"])
+                    : TextPluralEn(Number(age), EN_AGE_FORMS["year"])
+                }`}
+              />
+            ) : (
+              <></>
+            )}
           </div>
         </div>
       </div>

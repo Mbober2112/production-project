@@ -19,6 +19,8 @@ import { Text, TextAlign, TextTheme } from "shared/ui/Text/Text";
 import { Avatar, AvatarSize } from "shared/ui/Avatar/Avatar";
 import { Skeleton } from "shared/ui/Skeleton/Sceleton";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useItitialEffect";
+import { TextPluralEn, TextPluralRu } from "shared/lib/textPlural/textPlural";
+import { EN_AGE_FORMS, RU_AGE_FORMS } from "shared/const/common";
 
 interface WhiskyDetailsProps {
   className?: string;
@@ -30,7 +32,7 @@ const initialReducers: ReducersList = {
 };
 
 export const WhiskyDetails = memo(({ className, id }: WhiskyDetailsProps) => {
-  const { t } = useTranslation("whisky");
+  const { t, i18n } = useTranslation("whisky");
   const dispatch = useAppDispatch();
   const whiskyDetails = useSelector(getWhiskyDetailsData);
   const isLoading = useSelector(getWhiskyDetailsIsLoading);
@@ -49,24 +51,11 @@ export const WhiskyDetails = memo(({ className, id }: WhiskyDetailsProps) => {
           <Skeleton width={250} height={250} border={"20%"} />
           <div className={cls.mainInfo}>
             <Skeleton height={28} width={350} />
-            <div className={cls.info}>
-              <Skeleton width={200} height={24} />
-            </div>
-            <div className={cls.info}>
-              <Skeleton width={200} height={24} />
-            </div>
-            <div className={cls.info}>
-              <Skeleton width={200} height={24} />
-            </div>
-            <div className={cls.info}>
-              <Skeleton width={200} height={24} />
-            </div>
-            <div className={cls.info}>
-              <Skeleton width={200} height={24} />
-            </div>
-            <div className={cls.info}>
-              <Skeleton width={200} height={24} />
-            </div>
+            {new Array(6).fill(0).map((el, index) => (
+              <div key={index} className={cls.info}>
+                <Skeleton width={200} height={24} />
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -115,10 +104,26 @@ export const WhiskyDetails = memo(({ className, id }: WhiskyDetailsProps) => {
               <Text small opacity text={`${t("distillery")}:`} />
               <Text text={whiskyDetails?.distillery} />
             </div>
-            <div className={cls.info}>
-              <Text small opacity text={`${t("statedAge")}:`} />
-              <Text text={String(whiskyDetails?.statedAge)} />
-            </div>
+            {whiskyDetails?.statedAge ? (
+              <div className={cls.info}>
+                <Text small opacity text={`${t("statedAge")}:`} />
+                <Text
+                  text={`${whiskyDetails?.statedAge} ${
+                    i18n.language === "ru"
+                      ? TextPluralRu(
+                          whiskyDetails?.statedAge,
+                          RU_AGE_FORMS["year"]
+                        )
+                      : TextPluralEn(
+                          whiskyDetails?.statedAge,
+                          EN_AGE_FORMS["year"]
+                        )
+                  }`}
+                />
+              </div>
+            ) : (
+              <></>
+            )}
           </div>
         </div>
       </div>

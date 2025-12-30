@@ -20,27 +20,15 @@ export const CommentList = memo(
     if (isLoading) {
       return (
         <div className={cls.commentList}>
-          <div className={cls.skeletonWrapper}>
-            <div className={cls.commentHeaderWrapper}>
-              <Skeleton width={50} height={50} border={"20%"} />
-              <Skeleton width={150} height={28} />
+          {new Array(3).fill(0).map((el, index) => (
+            <div key={index} className={cls.skeletonWrapper}>
+              <div className={cls.commentHeaderWrapper}>
+                <Skeleton width={50} height={50} border={"20%"} />
+                <Skeleton width={150} height={28} />
+              </div>
+              <Skeleton />
             </div>
-            <Skeleton />
-          </div>
-          <div className={cls.skeletonWrapper}>
-            <div className={cls.commentHeaderWrapper}>
-              <Skeleton width={50} height={50} border={"20%"} />
-              <Skeleton width={150} height={28} />
-            </div>
-            <Skeleton />
-          </div>
-          <div className={cls.skeletonWrapper}>
-            <div className={cls.commentHeaderWrapper}>
-              <Skeleton width={50} height={50} border={"20%"} />
-              <Skeleton width={150} height={28} />
-            </div>
-            <Skeleton />
-          </div>
+          ))}
         </div>
       );
     }
@@ -48,7 +36,9 @@ export const CommentList = memo(
     return (
       <div className={classNames(cls.commentList, {}, [className])}>
         {comments?.length ? (
-          comments.map((comment) => <CommentCard comment={comment} />)
+          comments.map((comment) => (
+            <CommentCard key={comment.id} comment={comment} />
+          ))
         ) : (
           <Text align={TextAlign.CENTER} text={t("noCommentsYet")} />
         )}
