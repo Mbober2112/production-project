@@ -39,7 +39,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
       data-testid="navbar"
       className={classNames(cls.navbar, {}, [className])}
     >
-      <ThemeSwitcher />
       <LangSwitcher />
       {authData ? (
         <div className={classNames(cls.profileWrapper)}>

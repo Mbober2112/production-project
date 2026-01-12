@@ -25,5 +25,6 @@
   "dateOfBirth": "Date of birth",
   "sex": "Sex",
   "male": "Male",
-  "female": "Female"
+  "female": "Female",
+  "settings": "Settings"
 }
