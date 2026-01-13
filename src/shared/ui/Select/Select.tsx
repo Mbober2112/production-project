@@ -24,13 +24,11 @@ export const Select = memo(
     onChange,
     ...otherProps
   }: SelectProps) => {
-    const optionsList = useMemo(() => {
-      return options.map((opt) => (
-        <option className={cls.option} key={opt.value} value={opt.value}>
-          {opt.content}
-        </option>
-      ));
-    }, []);
+    const optionsList = options.map((opt) => (
+      <option className={cls.option} key={opt.value} value={opt.value}>
+        {opt.content}
+      </option>
+    ));
 
     const onChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
       onChange?.(e.target.value);

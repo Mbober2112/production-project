@@ -10,6 +10,7 @@ import { WhiskyDetailsCommentsSchema } from "../types/WhiskyDetailsCommentsSchem
 
 const commentsAdapter = createEntityAdapter<Comment>({
   selectId: (comment) => comment.id,
+  sortComparer: (a, b) => b.createdAt - a.createdAt,
 });
 
 export const getWhiskyComments = commentsAdapter.getSelectors<StateSchema>(

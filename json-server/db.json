@@ -46,6 +46,13 @@
       "createdAt": 1766987331261,
       "text": "dsdgsdhsdf",
       "id": "pEJF3I3"
+    },
+    {
+      "whiskyId": "2",
+      "userId": "1",
+      "createdAt": 1768309470343,
+      "text": "ыфыаывппв",
+      "id": "S9UulOQ"
     }
   ],
   "games": [
@@ -54,7 +61,9 @@
       "title": "Red dead redemption 2",
       "description": "Some description",
       "img": "",
-      "genre": ["Action"],
+      "genre": [
+        "Action"
+      ],
       "developer": "Rockstar Studios",
       "publisher": "Rockstar Games",
       "country": "USA",

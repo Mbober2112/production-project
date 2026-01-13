@@ -2,7 +2,7 @@
   "about": "About",
   "goLightTheme": "Go light",
   "goDarkTheme": "Go dark",
-  "language": "Русский",
+  "language": "Language",
   "main": "Main",
   "pageNotFound": "Page not found",
   "somethingWentWrong": "Something went wrong...",
@@ -30,5 +30,7 @@
   "enterComment": "Enter your comment text",
   "noCommentsYet": "No comments yet...",
   "now": "just now",
-  "ago": "ago"
+  "ago": "ago",
+  "ru": "Russian",
+  "en": "English"
 }

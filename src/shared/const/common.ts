@@ -1,5 +1,10 @@
 export type Unit = "minute" | "hour" | "day" | "month" | "year";
 
+export enum Language {
+  EN = "en",
+  RU = "ru",
+}
+
 export const RU_AGE_FORMS: Record<Unit, [string, string, string]> = {
   ["minute"]: ["минута", "минуты", "минут"],
   ["hour"]: ["час", "часа", "часов"],

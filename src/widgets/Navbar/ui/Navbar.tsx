@@ -8,8 +8,6 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { AppLink } from "shared/ui/AppLink/AppLink";
 import { Button } from "shared/ui/Button/Button";
-import { LangSwitcher } from "widgets/LangSwitcher";
-import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import cls from "./Navbar.module.scss";
 
 interface NavbarProps {
@@ -39,7 +37,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
       data-testid="navbar"
       className={classNames(cls.navbar, {}, [className])}
     >
-      <LangSwitcher />
       {authData ? (
         <div className={classNames(cls.profileWrapper)}>
           <AppLink

@@ -2,7 +2,7 @@
   "about": "О сайте",
   "goLightTheme": "Светлая тема",
   "goDarkTheme": "Темная тема",
-  "language": "English",
+  "language": "Язык",
   "main": "Главная",
   "pageNotFound": "Страница не найдена",
   "somethingWentWrong": "Что-то пошло не так...",
@@ -30,5 +30,7 @@
   "enterComment": "Введите текст комментария",
   "noCommentsYet": "Пока нет комментариев...",
   "now": "сейчас",
-  "ago": "назад"
+  "ago": "назад",
+  "ru": "Русский",
+  "en": "Английский"
 }
