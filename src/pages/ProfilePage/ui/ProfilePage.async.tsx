@@ -4,7 +4,7 @@ export const ProfilePageAsync = lazy(
   () =>
     new Promise((resolve) => {
       // @ts-ignore
-      // ТАК В РЕАЛЬНЫХ ПРОЕКТАХ НЕ ДЕЛАТЬ!!!!! ДЕЛАЕМ ДЛЯ КУРСА!
-      setTimeout(() => resolve(import("./ProfilePage")), 1500);
+      // ТОЛЬКО ДЛЯ ИМИТАЦИИ ЗАГРУЗКИ
+      setTimeout(() => resolve(import("./ProfilePage")), 400);
     })
 );

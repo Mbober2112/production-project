@@ -7,6 +7,7 @@ import { WhiskyDetailsSchema } from "entitiesModule/Whisky";
 import { AddCommentFormSchema } from "features/addCommentForm";
 import { LoginSchema } from "features/AuthByUsername";
 import { WhiskyDetailsCommentsSchema } from "pages/WhiskyDetailsPage";
+import { WhiskyPageSchema } from "pages/WhiskyPage";
 import { NavigateOptions, To } from "react-router-dom";
 import { AnyAction, CombinedState, Reducer, ReducersMapObject } from "redux";
 
@@ -19,6 +20,7 @@ export interface StateSchema {
   whiskyDetailsComments?: WhiskyDetailsCommentsSchema;
   gameDetails?: GameDetailsSchema;
   addCommentForm?: AddCommentFormSchema;
+  whiskyPage?: WhiskyPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

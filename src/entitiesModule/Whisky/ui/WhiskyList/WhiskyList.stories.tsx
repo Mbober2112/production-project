@@ -33,15 +33,49 @@ const Template: ComponentStory<typeof WhiskyList> = (args) => (
 );
 
 export const LightBadge = Template.bind({});
-LightBadge.args = { whiskyList, viewType: ListViewType.BADGE };
+LightBadge.args = {
+  whiskyList,
+  viewType: ListViewType.BADGE,
+  isLoading: false,
+};
 
 export const DarkBadge = Template.bind({});
-DarkBadge.args = { whiskyList, viewType: ListViewType.BADGE };
+DarkBadge.args = { whiskyList, viewType: ListViewType.BADGE, isLoading: false };
 DarkBadge.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const LightList = Template.bind({});
-LightList.args = { whiskyList, viewType: ListViewType.LIST };
+LightList.args = { whiskyList, viewType: ListViewType.LIST, isLoading: false };
 
 export const DarkList = Template.bind({});
-DarkList.args = { whiskyList, viewType: ListViewType.LIST };
+DarkList.args = { whiskyList, viewType: ListViewType.LIST, isLoading: false };
 DarkList.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const LightBadgeSkeleton = Template.bind({});
+LightBadgeSkeleton.args = {
+  whiskyList,
+  viewType: ListViewType.BADGE,
+  isLoading: true,
+};
+
+export const DarkBadgeSkeleton = Template.bind({});
+DarkBadgeSkeleton.args = {
+  whiskyList,
+  viewType: ListViewType.BADGE,
+  isLoading: true,
+};
+DarkBadgeSkeleton.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const LightListSkeleton = Template.bind({});
+LightListSkeleton.args = {
+  whiskyList,
+  viewType: ListViewType.LIST,
+  isLoading: true,
+};
+
+export const DarkListSkeleton = Template.bind({});
+DarkListSkeleton.args = {
+  whiskyList,
+  viewType: ListViewType.LIST,
+  isLoading: true,
+};
+DarkListSkeleton.decorators = [ThemeDecorator(Theme.DARK)];
