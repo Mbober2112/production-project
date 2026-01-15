@@ -1,0 +1,22 @@
+.listViewSwitcher {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.iconWrapper {
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.icon {
+  path {
+    fill: var(--bg-color-inverted);
+  }
+}
+
+.selected path {
+  fill: var(--bg-blue-color);
+}
