@@ -10,6 +10,7 @@ import {
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useItitialEffect";
+import { Page } from "shared/ui/Page/Page";
 import cls from "./ProfilePage.module.scss";
 import ProfilePageHeader from "./ProfilePageHeader/ProfilePageHeader";
 import ProfilePageSettings from "./ProfilePageSettings/ProfilePageSettings";
@@ -35,11 +36,11 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(cls.profilePage, {}, [className])}>
+      <Page className={classNames(cls.profilePage, {}, [className])}>
         <ProfilePageHeader canEdit={id === user?.id} />
         <ProfileMainCard />
         {id === user?.id ? <ProfilePageSettings /> : <></>}
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

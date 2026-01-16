@@ -11,6 +11,7 @@ import {
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useItitialEffect";
+import { Page } from "shared/ui/Page/Page";
 import { Text, TextAlign } from "shared/ui/Text/Text";
 import { getWhiskyDetailsCommentsIsLoading } from "../model/selectors/comments";
 import { addCommentForWhisky } from "../model/services/addCommentForWhisky/addCommentForWhisky";
@@ -43,22 +44,24 @@ const WhiskyDetailsPage = () => {
   );
 
   if (!id) {
-    return <div>{t("whiskyNotFound")}</div>;
+    return <Page>{t("whiskyNotFound")}</Page>;
   }
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <WhiskyDetails id={id} />
-      <Text
-        align={TextAlign.CENTER}
-        title={t("comments")}
-        className={cls.commentsTitle}
-      />
-      <AddCommentForm
-        isLoading={commentsIsLoading}
-        onSendComment={onSendComment}
-      />
-      <CommentList isLoading={commentsIsLoading} comments={comments} />
+      <Page>
+        <WhiskyDetails id={id} />
+        <Text
+          align={TextAlign.CENTER}
+          title={t("comments")}
+          className={cls.commentsTitle}
+        />
+        <AddCommentForm
+          isLoading={commentsIsLoading}
+          onSendComment={onSendComment}
+        />
+        <CommentList isLoading={commentsIsLoading} comments={comments} />
+      </Page>
     </DynamicModuleLoader>
   );
 };

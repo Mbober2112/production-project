@@ -9,6 +9,7 @@ import {
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useItitialEffect";
+import { Page } from "shared/ui/Page/Page";
 import cls from "./ProfileEditPage.module.scss";
 import ProfileEditPageHeader from "./ProfileEditPageHeader/ProfileEditPageHeader";
 
@@ -32,10 +33,10 @@ const ProfileEditPage = ({ className }: ProfileEditPageProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(cls.profileEditPage, {}, [className])}>
+      <Page className={classNames(cls.profileEditPage, {}, [className])}>
         <ProfileEditPageHeader />
         <ProfileEditCard />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

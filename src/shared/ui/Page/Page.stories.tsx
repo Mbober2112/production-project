@@ -1,21 +1,23 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
-import { Loader } from "./Loader";
+import { Page } from "./Page";
 
 export default {
-  title: "shared/Loader",
-  component: Loader,
+  title: "shared/Page",
+  component: Page,
   argTypes: {
     backgroundColor: { control: "color" },
   },
-} as ComponentMeta<typeof Loader>;
+} as ComponentMeta<typeof Page>;
 
-const Template: ComponentStory<typeof Loader> = (args) => <Loader {...args} />;
+const Template: ComponentStory<typeof Page> = (args) => <Page {...args} />;
 
 export const Light = Template.bind({});
-Light.args = {};
+Light.args = {
+  children: "Some children",
+};
 
 export const Dark = Template.bind({});
-Dark.args = {};
+Dark.args = { children: "Some children" };
 Dark.decorators = [ThemeDecorator(Theme.DARK)];

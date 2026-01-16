@@ -24,6 +24,8 @@ const whiskyPageSlice = createSlice({
     isLoading: false,
     error: undefined,
     view: ListViewType.LIST,
+    page: 1,
+    hasMore: false,
     ids: [],
     entities: {},
   }),
@@ -32,8 +34,12 @@ const whiskyPageSlice = createSlice({
       state.view = action.payload;
       localStorage.setItem(WHISKY_LIST_VIEW_KEY, action.payload);
     },
+    setPage: (state, action: PayloadAction<number>) => {
+      state.page = action.payload;
+    },
     initState: (state) => {
       state.view = localStorage.getItem(WHISKY_LIST_VIEW_KEY) as ListViewType;
+      state.limit = 20;
     },
   },
 
@@ -41,13 +47,14 @@ const whiskyPageSlice = createSlice({
     builder
       .addCase(fetchWhiskyList.pending, (state) => {
         state.error = undefined;
-        state.isLoading = !state.ids.length && true;
+        state.isLoading = true;
       })
       .addCase(
         fetchWhiskyList.fulfilled,
         (state, action: PayloadAction<Whisky[]>) => {
           state.isLoading = false;
-          whiskyAdapter.setAll(state, action.payload);
+          whiskyAdapter.addMany(state, action.payload);
+          state.hasMore = action.payload.length === state.limit;
         }
       )
       .addCase(fetchWhiskyList.rejected, (state, action) => {

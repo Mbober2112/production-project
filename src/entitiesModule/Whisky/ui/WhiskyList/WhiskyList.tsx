@@ -20,26 +20,6 @@ export const WhiskyList = memo(
     viewType = ListViewType.LIST,
     whiskyList,
   }: WhiskyListProps) => {
-    if (isLoading) {
-      return viewType === ListViewType.LIST ? (
-        <div
-          className={classNames(cls.whiskyList, {}, [className, cls[viewType]])}
-        >
-          {new Array(30).fill(0).map((el, index) => (
-            <Skeleton key={index} height={70} />
-          ))}
-        </div>
-      ) : (
-        <div
-          className={classNames(cls.whiskyList, {}, [className, cls[viewType]])}
-        >
-          {new Array(30).fill(0).map((el, index) => (
-            <Skeleton key={index} width={220} height={300} />
-          ))}
-        </div>
-      );
-    }
-
     return (
       <div
         className={classNames(cls.whiskyList, {}, [className, cls[viewType]])}
@@ -47,6 +27,33 @@ export const WhiskyList = memo(
         {whiskyList.map((whisky) => (
           <WhiskyListItem key={whisky.id} viewType={viewType} whisky={whisky} />
         ))}
+        {isLoading && (
+          <>
+            {viewType === ListViewType.LIST ? (
+              <div
+                className={classNames(cls.whiskyList, {}, [
+                  className,
+                  cls[viewType],
+                ])}
+              >
+                {new Array(30).fill(0).map((el, index) => (
+                  <Skeleton key={index} height={70} />
+                ))}
+              </div>
+            ) : (
+              <div
+                className={classNames(cls.whiskyList, {}, [
+                  className,
+                  cls[viewType],
+                ])}
+              >
+                {new Array(30).fill(0).map((el, index) => (
+                  <Skeleton key={index} width={220} height={300} />
+                ))}
+              </div>
+            )}
+          </>
+        )}
       </div>
     );
   }

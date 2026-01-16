@@ -8,12 +8,16 @@ import {
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useItitialEffect";
+import { Page } from "shared/ui/Page/Page";
 import { ListViewSwitcher } from "widgets/ListViewSwitcher";
 import {
   getWhiskyPageError,
+  getwhiskyPageHasMore,
   getWhiskyPageIsLoading,
+  getwhiskyPageNum,
   getwhiskyPageView,
 } from "../model/selectors/whiskyPageSelectors";
+import { fetchNextWhiskyPage } from "../model/services/fetchNextWhiskyPage/fetchNextWhiskyPage";
 import { fetchWhiskyList } from "../model/services/fetchWhiskyList/fetchWhiskyList";
 import {
   getWhisky,
@@ -31,11 +35,13 @@ const WhiskyPage = () => {
   const whiskyList = useSelector(getWhisky.selectAll);
   const listView = useSelector(getwhiskyPageView);
   const isLoading = useSelector(getWhiskyPageIsLoading);
+  const page = useSelector(getwhiskyPageNum);
+  const hasMore = useSelector(getwhiskyPageHasMore);
   const error = useSelector(getWhiskyPageError);
 
   useInitialEffect(() => {
-    dispatch(fetchWhiskyList());
     dispatch(whiskyPageActions.initState());
+    dispatch(fetchWhiskyList({ page: 1 }));
   });
 
   const listViewChange = useCallback(
@@ -45,14 +51,20 @@ const WhiskyPage = () => {
     [dispatch]
   );
 
+  const onLoadNextPart = useCallback(() => {
+    dispatch(fetchNextWhiskyPage());
+  }, [dispatch]);
+
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <ListViewSwitcher onViewChange={listViewChange} view={listView} />
-      <WhiskyList
-        whiskyList={whiskyList}
-        isLoading={isLoading}
-        viewType={listView}
-      />
+      <Page onScrollEnd={onLoadNextPart}>
+        <ListViewSwitcher onViewChange={listViewChange} view={listView} />
+        <WhiskyList
+          whiskyList={whiskyList}
+          isLoading={isLoading}
+          viewType={listView}
+        />
+      </Page>
     </DynamicModuleLoader>
   );
 };

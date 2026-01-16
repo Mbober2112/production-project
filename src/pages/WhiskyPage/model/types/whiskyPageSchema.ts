@@ -6,4 +6,8 @@ export interface WhiskyPageSchema extends EntityState<Whisky> {
   isLoading?: boolean;
   error?: string;
   view: ListViewType;
+  //pagination
+  page: number;
+  limit?: number;
+  hasMore: boolean;
 }

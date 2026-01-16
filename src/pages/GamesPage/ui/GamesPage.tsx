@@ -1,10 +1,11 @@
 import { useTranslation } from "react-i18next";
+import { Page } from "shared/ui/Page/Page";
 import cls from "./GamesPage.module.scss";
 
 const GamesPage = () => {
   const { t } = useTranslation("games");
 
-  return <div>{t("games")}</div>;
+  return <Page>{t("games")}</Page>;
 };
 
 export default GamesPage;
