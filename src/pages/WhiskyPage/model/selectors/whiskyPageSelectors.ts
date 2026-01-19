@@ -18,3 +18,6 @@ export const getwhiskyPageLimit = (state: StateSchema) =>
 
 export const getwhiskyPageHasMore = (state: StateSchema) =>
   state.whiskyPage?.hasMore;
+
+export const getwhiskyPageInited = (state: StateSchema) =>
+  state.whiskyPage?._inited;

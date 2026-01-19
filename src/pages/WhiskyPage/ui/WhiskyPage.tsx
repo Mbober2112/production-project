@@ -13,12 +13,14 @@ import { ListViewSwitcher } from "widgets/ListViewSwitcher";
 import {
   getWhiskyPageError,
   getwhiskyPageHasMore,
+  getwhiskyPageInited,
   getWhiskyPageIsLoading,
   getwhiskyPageNum,
   getwhiskyPageView,
 } from "../model/selectors/whiskyPageSelectors";
 import { fetchNextWhiskyPage } from "../model/services/fetchNextWhiskyPage/fetchNextWhiskyPage";
 import { fetchWhiskyList } from "../model/services/fetchWhiskyList/fetchWhiskyList";
+import { initWhiskyPage } from "../model/services/initWhiskyPage/initWhiskyPage";
 import {
   getWhisky,
   whiskyPageActions,
@@ -35,13 +37,11 @@ const WhiskyPage = () => {
   const whiskyList = useSelector(getWhisky.selectAll);
   const listView = useSelector(getwhiskyPageView);
   const isLoading = useSelector(getWhiskyPageIsLoading);
-  const page = useSelector(getwhiskyPageNum);
-  const hasMore = useSelector(getwhiskyPageHasMore);
+  const inited = useSelector(getwhiskyPageInited);
   const error = useSelector(getWhiskyPageError);
 
   useInitialEffect(() => {
-    dispatch(whiskyPageActions.initState());
-    dispatch(fetchWhiskyList({ page: 1 }));
+    dispatch(initWhiskyPage());
   });
 
   const listViewChange = useCallback(
@@ -56,7 +56,7 @@ const WhiskyPage = () => {
   }, [dispatch]);
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Page onScrollEnd={onLoadNextPart}>
         <ListViewSwitcher onViewChange={listViewChange} view={listView} />
         <WhiskyList

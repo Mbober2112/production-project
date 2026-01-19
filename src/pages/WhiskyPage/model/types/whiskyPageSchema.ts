@@ -10,4 +10,5 @@ export interface WhiskyPageSchema extends EntityState<Whisky> {
   page: number;
   limit?: number;
   hasMore: boolean;
+  _inited: boolean;
 }

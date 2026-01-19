@@ -28,6 +28,7 @@ const whiskyPageSlice = createSlice({
     hasMore: false,
     ids: [],
     entities: {},
+    _inited: false,
   }),
   reducers: {
     setView: (state, action: PayloadAction<ListViewType>) => {
@@ -40,6 +41,7 @@ const whiskyPageSlice = createSlice({
     initState: (state) => {
       state.view = localStorage.getItem(WHISKY_LIST_VIEW_KEY) as ListViewType;
       state.limit = 20;
+      state._inited = true;
     },
   },
 
