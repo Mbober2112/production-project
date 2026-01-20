@@ -6,12 +6,14 @@ import { UserSchema } from "entitiesModule/User";
 import { WhiskyDetailsSchema } from "entitiesModule/Whisky";
 import { AddCommentFormSchema } from "features/addCommentForm";
 import { LoginSchema } from "features/AuthByUsername";
+import { ScrollSaveSchema } from "features/scrollSave";
 import { WhiskyDetailsCommentsSchema } from "pages/WhiskyDetailsPage";
 import { WhiskyPageSchema } from "pages/WhiskyPage";
 import { AnyAction, CombinedState, Reducer, ReducersMapObject } from "redux";
 
 export interface StateSchema {
   user: UserSchema;
+  scrollSave: ScrollSaveSchema;
   //async
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
