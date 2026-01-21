@@ -1,6 +1,7 @@
 .whiskyListItemBadge {
   display: flex;
   flex-direction: column;
+  gap: 4px;
   width: 220px;
   cursor: pointer;
   transition: 0.2s;
@@ -22,6 +23,7 @@
 
 .whiskyListItemList {
   display: flex;
+  justify-content: space-between;
   cursor: pointer;
   transition: 0.2s;
   gap: 10px;
@@ -43,4 +45,13 @@
     opacity: 0.8;
     transform: scale(1.01);
   }
+}
+
+.mainInfo {
+  display: flex;
+  gap: 10px;
+}
+
+.raiting {
+  align-self: center;
 }

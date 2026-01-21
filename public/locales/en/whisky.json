@@ -7,5 +7,7 @@
   "bottler": "Bottler",
   "distillery": "Distillery",
   "statedAge": "Staded age",
-  "comments": "Comments"
+  "comments": "Comments",
+  "rates": "rates",
+  "overallRaiting": "Overall raiting"
 }

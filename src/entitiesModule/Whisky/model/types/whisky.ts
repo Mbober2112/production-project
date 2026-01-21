@@ -21,4 +21,8 @@ export interface Whisky {
   bottler?: string;
   distillery?: string;
   statedAge?: number;
+  rating?: {
+    avg: number;
+    count: number;
+  };
 }

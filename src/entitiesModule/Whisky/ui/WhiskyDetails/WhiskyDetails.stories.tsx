@@ -17,6 +17,10 @@ const whiskyDetailsDataMock = {
   type: WhiskyType.SINGLE_MALT,
   country: Countries.SCOTLAND,
   alc: 46,
+  rating: {
+    avg: 75,
+    count: 1,
+  },
   createdAt: 123456654,
   updatedAt: 123456654,
 };

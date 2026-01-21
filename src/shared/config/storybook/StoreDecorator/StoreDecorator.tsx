@@ -6,6 +6,7 @@ import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicM
 import { whiskyDetailsReducer } from "entitiesModule/Whisky/model/slice/whiskyDetailsSlice";
 import { whiskyDetailsCommentsReducer } from "pages/WhiskyDetailsPage/model/slices/whiskyDetailsCommentsSlice";
 import { addCommentFormReducer } from "features/addCommentForm/model/slices/addCommentFormSlice";
+import { scrollSaveReducer } from "features/scrollSave";
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: loginReducer,
@@ -13,6 +14,7 @@ const defaultAsyncReducers: ReducersList = {
   whiskyDetails: whiskyDetailsReducer,
   whiskyDetailsComments: whiskyDetailsCommentsReducer,
   addCommentForm: addCommentFormReducer,
+  scrollSave: scrollSaveReducer,
 };
 
 export const StoreDecorator =

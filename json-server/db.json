@@ -82,6 +82,10 @@
       "type": "Single Malt",
       "country": "Scotland",
       "alc": 43,
+      "rating": {
+        "avg": 89,
+        "count": 1
+      },
       "createdAt": 123456654,
       "updatedAt": 123456654
     },
@@ -96,6 +100,10 @@
       "type": "Single Malt",
       "country": "Scotland",
       "alc": 46,
+      "rating": {
+        "avg": 91,
+        "count": 2
+      },
       "createdAt": 123456654,
       "updatedAt": 123456654
     },
@@ -110,6 +118,10 @@
       "type": "Single Malt",
       "country": "Scotland",
       "alc": 45.8,
+      "rating": {
+        "avg": 85,
+        "count": 5
+      },
       "createdAt": 123456654,
       "updatedAt": 123456654
     },
@@ -124,6 +136,10 @@
       "type": "Single Malt",
       "country": "Scotland",
       "alc": 46,
+      "rating": {
+        "avg": 84,
+        "count": 3
+      },
       "createdAt": 123456654,
       "updatedAt": 123456654
     },
@@ -137,6 +153,10 @@
       "type": "Single Malt",
       "country": "Scotland",
       "alc": 46,
+      "rating": {
+        "avg": 80,
+        "count": 1
+      },
       "createdAt": 123456654,
       "updatedAt": 123456654
     },
@@ -151,6 +171,10 @@
       "type": "Single Malt",
       "country": "Scotland",
       "alc": 40,
+      "rating": {
+        "avg": 79,
+        "count": 2
+      },
       "createdAt": 123456654,
       "updatedAt": 123456654
     },
@@ -164,6 +188,10 @@
       "type": "Blended",
       "country": "Scotland",
       "alc": 40,
+      "rating": {
+        "avg": 70,
+        "count": 11
+      },
       "createdAt": 123456654,
       "updatedAt": 123456654
     },
@@ -176,6 +204,10 @@
       "type": "Blended",
       "country": "Scotland",
       "alc": 40,
+      "rating": {
+        "avg": 61,
+        "count": 5
+      },
       "createdAt": 123456654,
       "updatedAt": 123456654
     },
@@ -188,6 +220,10 @@
       "type": "Blended",
       "country": "Scotland",
       "alc": 40,
+      "rating": {
+        "avg": 60,
+        "count": 2
+      },
       "createdAt": 123456654,
       "updatedAt": 123456654
     },
@@ -202,6 +238,10 @@
       "type": "Single Malt",
       "country": "Scotland",
       "alc": 46,
+      "rating": {
+        "avg": 90,
+        "count": 7
+      },
       "createdAt": 123456654,
       "updatedAt": 123456654
     },
@@ -216,6 +256,10 @@
       "type": "Single Malt",
       "country": "Scotland",
       "alc": 40,
+      "rating": {
+        "avg": 75,
+        "count": 1
+      },
       "createdAt": 123456654,
       "updatedAt": 123456654
     },

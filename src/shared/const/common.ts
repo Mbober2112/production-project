@@ -5,6 +5,14 @@ export enum Language {
   RU = "ru",
 }
 
+export const RU_RATE_FORMS: [string, string, string] = [
+  "оценка",
+  "оценки",
+  "оценок",
+];
+
+export const EN_RATE_FORMS: [string, string] = ["rate", "rates"];
+
 export const RU_AGE_FORMS: Record<Unit, [string, string, string]> = {
   ["minute"]: ["минута", "минуты", "минут"],
   ["hour"]: ["час", "часа", "часов"],

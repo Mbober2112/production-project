@@ -20,7 +20,12 @@ import { Avatar, AvatarSize } from "shared/ui/Avatar/Avatar";
 import { Skeleton } from "shared/ui/Skeleton/Sceleton";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useItitialEffect";
 import { TextPluralEn, TextPluralRu } from "shared/lib/textPlural/textPlural";
-import { EN_AGE_FORMS, RU_AGE_FORMS } from "shared/const/common";
+import {
+  EN_AGE_FORMS,
+  EN_RATE_FORMS,
+  RU_AGE_FORMS,
+  RU_RATE_FORMS,
+} from "shared/const/common";
 
 interface WhiskyDetailsProps {
   className?: string;
@@ -124,6 +129,27 @@ export const WhiskyDetails = memo(({ className, id }: WhiskyDetailsProps) => {
             ) : (
               <></>
             )}
+          </div>
+          <div className={cls.raitingInfo}>
+            <Text title={`${t("overallRaiting")}:`} />
+            <Text
+              text={`${String(whiskyDetails?.rating?.avg || "-")}/100`}
+              className={cls.raiting}
+            />
+            <Text
+              opacity
+              text={`${whiskyDetails?.rating?.count || 0}  ${
+                i18n.language === "ru"
+                  ? TextPluralRu(
+                      whiskyDetails?.rating?.count || 0,
+                      RU_RATE_FORMS
+                    )
+                  : TextPluralEn(
+                      whiskyDetails?.rating?.count || 0,
+                      EN_RATE_FORMS
+                    )
+              }`}
+            />
           </div>
         </div>
       </div>

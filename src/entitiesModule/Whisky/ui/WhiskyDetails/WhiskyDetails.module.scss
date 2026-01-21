@@ -26,3 +26,13 @@
   align-items: flex-end;
   gap: 6px;
 }
+
+.raitingInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.raiting {
+  color: var(--text-hover-color);
+}
