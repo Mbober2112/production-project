@@ -1,4 +1,4 @@
-import { WhiskyDetails } from "./ui/WhiskyDetails/WhiskyDetails";
 import type { WhiskyDetailsSchema } from "./model/types/whiskyDetailsSchema";
+import { WhiskySortField } from "./model/types/whisky";
 
-export { WhiskyDetails, WhiskyDetailsSchema };
+export { WhiskyDetailsSchema, WhiskySortField };

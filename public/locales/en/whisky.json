@@ -9,5 +9,13 @@
   "statedAge": "Staded age",
   "comments": "Comments",
   "rates": "rates",
-  "overallRaiting": "Overall raiting"
+  "overallRaiting": "Overall raiting",
+  "ascending": "Ascending",
+  "descending": "Descending",
+  "byRates": "Rates",
+  "byRaiting": "Raiting",
+  "byName": "Name",
+  "sortBy": "Sort by",
+  "by": "By",
+  "search": "Search"
 }

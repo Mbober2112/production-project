@@ -1,4 +1,5 @@
 import { StateSchema } from "app/providers/StoreProvider";
+import { WhiskySortField } from "entitiesModule/Whisky";
 import { ListViewType } from "shared/const/common";
 
 export const getWhiskyPageIsLoading = (state: StateSchema) =>
@@ -21,3 +22,12 @@ export const getwhiskyPageHasMore = (state: StateSchema) =>
 
 export const getwhiskyPageInited = (state: StateSchema) =>
   state.whiskyPage?._inited;
+
+export const getwhiskyPageSort = (state: StateSchema) =>
+  state.whiskyPage?.sort || WhiskySortField.TITLE;
+
+export const getwhiskyPageOrder = (state: StateSchema) =>
+  state.whiskyPage?.order || "asc";
+
+export const getwhiskyPageSearch = (state: StateSchema) =>
+  state.whiskyPage?.search || "";

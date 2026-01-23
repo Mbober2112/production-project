@@ -48,14 +48,14 @@ export const WhiskyListItem = memo(
             </div>
           </div>
           <div className={cls.raiting}>
-            <Text text={`${String(whisky.rating?.avg || "-")}/100`} />
+            <Text text={`${String(whisky.raiting || "-")}/100`} />
             <Text
               opacity
               small
-              text={`${whisky?.rating?.count || 0}  ${
+              text={`${whisky?.rates || 0}  ${
                 i18n.language === "ru"
-                  ? TextPluralRu(whisky?.rating?.count || 0, RU_RATE_FORMS)
-                  : TextPluralEn(whisky?.rating?.count || 0, EN_RATE_FORMS)
+                  ? TextPluralRu(whisky?.rates || 0, RU_RATE_FORMS)
+                  : TextPluralEn(whisky?.rates || 0, EN_RATE_FORMS)
               }`}
             />
           </div>
@@ -75,14 +75,14 @@ export const WhiskyListItem = memo(
         />
         <Text text={whisky.title} className={cls.title} />
         <Text small text={whisky.type} />
-        <Text text={`${String(whisky.rating?.avg || "-")}/100`} />
+        <Text text={`${String(whisky.raiting || "-")}/100`} />
         <Text
           opacity
           small
-          text={`${whisky?.rating?.count || 0}  ${
+          text={`${whisky?.rates || 0}  ${
             i18n.language === "ru"
-              ? TextPluralRu(whisky?.rating?.count || 0, RU_RATE_FORMS)
-              : TextPluralEn(whisky?.rating?.count || 0, EN_RATE_FORMS)
+              ? TextPluralRu(whisky?.rates || 0, RU_RATE_FORMS)
+              : TextPluralEn(whisky?.rates || 0, EN_RATE_FORMS)
           }`}
         />
       </Card>

@@ -133,21 +133,15 @@ export const WhiskyDetails = memo(({ className, id }: WhiskyDetailsProps) => {
           <div className={cls.raitingInfo}>
             <Text title={`${t("overallRaiting")}:`} />
             <Text
-              text={`${String(whiskyDetails?.rating?.avg || "-")}/100`}
+              text={`${String(whiskyDetails?.raiting || "-")}/100`}
               className={cls.raiting}
             />
             <Text
               opacity
-              text={`${whiskyDetails?.rating?.count || 0}  ${
+              text={`${whiskyDetails?.rates || 0}  ${
                 i18n.language === "ru"
-                  ? TextPluralRu(
-                      whiskyDetails?.rating?.count || 0,
-                      RU_RATE_FORMS
-                    )
-                  : TextPluralEn(
-                      whiskyDetails?.rating?.count || 0,
-                      EN_RATE_FORMS
-                    )
+                  ? TextPluralRu(whiskyDetails?.rates || 0, RU_RATE_FORMS)
+                  : TextPluralEn(whiskyDetails?.rates || 0, EN_RATE_FORMS)
               }`}
             />
           </div>

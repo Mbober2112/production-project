@@ -1,5 +1,7 @@
 export type Unit = "minute" | "hour" | "day" | "month" | "year";
 
+export type SortOrder = "asc" | "desc";
+
 export enum Language {
   EN = "en",
   RU = "ru",

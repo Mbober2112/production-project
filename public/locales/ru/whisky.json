@@ -10,5 +10,13 @@
   "statedAge": "Выдержка",
   "comments": "Комментарии",
   "rates": "оценок",
-  "overallRaiting": "Рейтинг"
+  "overallRaiting": "Рейтинг",
+  "ascending": "Возрастанию",
+  "descending": "Убыванию",
+  "byRates": "Количеству оценок",
+  "byRaiting": "Рейтингу",
+  "byName": "Названию",
+  "sortBy": "Сортировать по",
+  "by": "По",
+  "search": "Поиск"
 }

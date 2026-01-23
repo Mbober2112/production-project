@@ -8,6 +8,12 @@ export enum WhiskyType {
   BOURBON = "Bourbon",
 }
 
+export enum WhiskySortField {
+  RATES = "rates",
+  RAITING = "raiting",
+  TITLE = "title",
+}
+
 export interface Whisky {
   id: string;
   title: string;
@@ -21,8 +27,6 @@ export interface Whisky {
   bottler?: string;
   distillery?: string;
   statedAge?: number;
-  rating?: {
-    avg: number;
-    count: number;
-  };
+  raiting?: number;
+  rates?: number;
 }
