@@ -1,5 +1,5 @@
 import { CommentList } from "entitiesModule/Comment/ui/CommentList/CommentList";
-import { WhiskyDetails } from "entitiesModule/Whisky";
+import { WhiskyDetails } from "entitiesModule/Whisky/ui/WhiskyDetails/WhiskyDetails";
 import { AddCommentForm } from "features/addCommentForm";
 import { useCallback } from "react";
 import { useTranslation } from "react-i18next";

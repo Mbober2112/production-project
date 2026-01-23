@@ -29,15 +29,21 @@ export default {
 
 const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />;
 
-export const PrimaryLight = Template.bind({});
-PrimaryLight.args = {};
-PrimaryLight.decorators = [
-  StoreDecorator({ profile: { data: profileDataMock } }),
+export const Light = Template.bind({});
+Light.args = {};
+Light.decorators = [
+  StoreDecorator({
+    profile: { data: profileDataMock },
+    scrollSave: { scroll: {} },
+  }),
 ];
 
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {};
-PrimaryDark.decorators = [
-  StoreDecorator({ profile: { data: profileDataMock } }),
+export const Dark = Template.bind({});
+Dark.args = {};
+Dark.decorators = [
+  StoreDecorator({
+    profile: { data: profileDataMock },
+    scrollSave: { scroll: {} },
+  }),
   ThemeDecorator(Theme.DARK),
 ];

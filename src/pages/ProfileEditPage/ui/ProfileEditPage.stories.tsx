@@ -31,16 +31,21 @@ const Template: ComponentStory<typeof ProfileEditPage> = () => (
   <ProfileEditPage />
 );
 
-export const PrimaryLight = Template.bind({});
-PrimaryLight.args = {};
-PrimaryLight.decorators = [
-  StoreDecorator({ profile: { form: profileDataMock } }),
+export const Light = Template.bind({});
+Light.args = {};
+Light.decorators = [
+  StoreDecorator({
+    profile: { form: profileDataMock },
+    scrollSave: { scroll: {} },
+  }),
 ];
 
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {};
-PrimaryDark.decorators = [];
-PrimaryDark.decorators = [
-  StoreDecorator({ profile: { form: profileDataMock } }),
+export const Dark = Template.bind({});
+Dark.args = {};
+Dark.decorators = [
+  StoreDecorator({
+    profile: { form: profileDataMock },
+    scrollSave: { scroll: {} },
+  }),
   ThemeDecorator(Theme.DARK),
 ];
