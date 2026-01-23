@@ -84,6 +84,7 @@
       "alc": 43,
       "raiting": 89,
       "rates": 1,
+      "casks": [],
       "createdAt": 123456654,
       "updatedAt": 123456654
     },
@@ -100,6 +101,7 @@
       "alc": 46,
       "raiting": 91,
       "rates": 2,
+      "casks": ["Sherry"],
       "createdAt": 123456654,
       "updatedAt": 123456654
     },
@@ -116,6 +118,7 @@
       "alc": 45.8,
       "raiting": 85,
       "rates": 5,
+      "casks": [],
       "createdAt": 123456654,
       "updatedAt": 123456654
     },
@@ -132,6 +135,7 @@
       "alc": 46,
       "raiting": 84,
       "rates": 3,
+      "casks": ["Bourbon"],
       "createdAt": 123456654,
       "updatedAt": 123456654
     },
@@ -147,6 +151,7 @@
       "alc": 46,
       "raiting": 80,
       "rates": 1,
+      "casks": ["Bourbon", "Rum"],
       "createdAt": 123456654,
       "updatedAt": 123456654
     },
@@ -163,6 +168,7 @@
       "alc": 40,
       "raiting": 79,
       "rates": 2,
+      "casks": ["Bourbon", "Sherry"],
       "createdAt": 123456654,
       "updatedAt": 123456654
     },
@@ -178,6 +184,7 @@
       "alc": 40,
       "raiting": 70,
       "rates": 11,
+      "casks": [],
       "createdAt": 123456654,
       "updatedAt": 123456654
     },
@@ -192,6 +199,7 @@
       "alc": 40,
       "raiting": 61,
       "count": 5,
+      "casks": [],
       "createdAt": 123456654,
       "updatedAt": 123456654
     },
@@ -206,12 +214,13 @@
       "alc": 40,
       "raiting": 60,
       "rates": 2,
+      "casks": [],
       "createdAt": 123456654,
       "updatedAt": 123456654
     },
     {
       "id": "10",
-      "title": "Ardbeg Years Old",
+      "title": "Ardbeg 10 Years Old",
       "description": "Some description",
       "img": "https://cdn11.bigcommerce.com/s-e8lbekfe7c/images/stencil/3840w/attribute_rule_images/35932_source_1758885079.jpg?compression=lossy",
       "bottler": "Distillery Bottling",
@@ -222,6 +231,7 @@
       "alc": 46,
       "raiting": 90,
       "rates": 7,
+      "casks": ["Bourbon"],
       "createdAt": 123456654,
       "updatedAt": 123456654
     },
@@ -238,6 +248,7 @@
       "alc": 40,
       "raiting": 75,
       "rates": 1,
+      "casks": [],
       "createdAt": 123456654,
       "updatedAt": 123456654
     },

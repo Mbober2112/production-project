@@ -105,10 +105,12 @@ export const WhiskyDetails = memo(({ className, id }: WhiskyDetailsProps) => {
               <Text small opacity text={`${t("bottler")}:`} />
               <Text text={whiskyDetails?.bottler} />
             </div>
-            <div className={cls.info}>
-              <Text small opacity text={`${t("distillery")}:`} />
-              <Text text={whiskyDetails?.distillery} />
-            </div>
+            {whiskyDetails?.distillery ? (
+              <div className={cls.info}>
+                <Text small opacity text={`${t("distillery")}:`} />
+                <Text text={whiskyDetails?.distillery} />
+              </div>
+            ) : null}
             {whiskyDetails?.statedAge ? (
               <div className={cls.info}>
                 <Text small opacity text={`${t("statedAge")}:`} />
@@ -126,9 +128,19 @@ export const WhiskyDetails = memo(({ className, id }: WhiskyDetailsProps) => {
                   }`}
                 />
               </div>
-            ) : (
-              <></>
-            )}
+            ) : null}
+            {whiskyDetails?.casks?.length ? (
+              <div className={cls.info}>
+                <Text small opacity text={`${t("casks")}:`} />
+                {whiskyDetails.casks.map((caskType, index) => (
+                  <Text
+                    text={`${t(caskType)}${
+                      index < whiskyDetails.casks?.length! - 1 ? "," : ""
+                    }`}
+                  />
+                ))}
+              </div>
+            ) : null}
           </div>
           <div className={cls.raitingInfo}>
             <Text title={`${t("overallRaiting")}:`} />

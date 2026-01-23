@@ -17,5 +17,9 @@
   "byName": "Name",
   "sortBy": "Sort by",
   "by": "By",
-  "search": "Search"
+  "search": "Search",
+  "casks": "Casks",
+  "Bourbon": "Bourbon",
+  "Sherry": "Sherry",
+  "Rum": "Rum"
 }

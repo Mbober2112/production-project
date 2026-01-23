@@ -8,6 +8,12 @@ export enum WhiskyType {
   BOURBON = "Bourbon",
 }
 
+export enum WhiskyCaskType {
+  BOURBON_CASK = "Bourbon",
+  SHERRY_CASK = "Sherry",
+  RUM_CASK = "Rum",
+}
+
 export enum WhiskySortField {
   RATES = "rates",
   RAITING = "raiting",
@@ -29,4 +35,5 @@ export interface Whisky {
   statedAge?: number;
   raiting?: number;
   rates?: number;
+  casks?: WhiskyCaskType[];
 }

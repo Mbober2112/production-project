@@ -3,7 +3,10 @@ import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from "app/providers/ThemeProvider";
 import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator";
 import { Countries } from "entitiesModule/Country";
-import { WhiskyType } from "entitiesModule/Whisky/model/types/whisky";
+import {
+  WhiskyCaskType,
+  WhiskyType,
+} from "entitiesModule/Whisky/model/types/whisky";
 import { WhiskyDetails } from "./WhiskyDetails";
 
 const whiskyDetailsDataMock = {
@@ -19,6 +22,7 @@ const whiskyDetailsDataMock = {
   alc: 46,
   raiting: 80,
   rates: 1,
+  casks: [WhiskyCaskType.BOURBON_CASK, WhiskyCaskType.SHERRY_CASK],
   createdAt: 123456654,
   updatedAt: 123456654,
 };

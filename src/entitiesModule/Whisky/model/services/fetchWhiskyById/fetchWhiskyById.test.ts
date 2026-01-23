@@ -1,7 +1,7 @@
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 import { Countries } from "entitiesModule/Country";
 import { fetchWhiskyById } from "./fetchWhiskyById";
-import { WhiskyType } from "../../types/whisky";
+import { WhiskyCaskType, WhiskyType } from "../../types/whisky";
 
 const data = {
   id: "4",
@@ -16,6 +16,7 @@ const data = {
   alc: 46,
   raiting: 80,
   rates: 1,
+  casks: [WhiskyCaskType.BOURBON_CASK, WhiskyCaskType.SHERRY_CASK],
   createdAt: 123456654,
   updatedAt: 123456654,
 };

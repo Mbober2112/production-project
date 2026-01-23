@@ -1,6 +1,7 @@
 import { WhiskyList } from "entitiesModule/Whisky/ui/WhiskyList/WhiskyList";
 import { useCallback } from "react";
 import { useSelector } from "react-redux";
+import { useSearchParams } from "react-router-dom";
 import {
   DynamicModuleLoader,
   ReducersList,
@@ -29,9 +30,10 @@ const WhiskyPage = () => {
   const listView = useSelector(getwhiskyPageView);
   const isLoading = useSelector(getWhiskyPageIsLoading);
   const error = useSelector(getWhiskyPageError);
+  const [searchParams] = useSearchParams();
 
   useInitialEffect(() => {
-    dispatch(initWhiskyPage());
+    dispatch(initWhiskyPage(searchParams));
   });
 
   const onLoadNextPart = useCallback(() => {

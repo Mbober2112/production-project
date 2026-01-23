@@ -14,6 +14,7 @@ import { useSelector } from "react-redux";
 import { ListViewType, SortOrder } from "shared/const/common";
 import { classNames } from "shared/lib/classNames/classNames";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { useDebounce } from "shared/lib/hooks/useDebounce/useDebounce";
 import { Input } from "shared/ui/Input/Input";
 import { ListViewSwitcher } from "widgets/ListViewSwitcher";
 import cls from "./WhiskyPageFilters.module.scss";
@@ -34,6 +35,8 @@ export const WhiskyPageFilters = memo(
     const fetchData = useCallback(() => {
       dispatch(fetchWhiskyList({ page: 1, replace: true }));
     }, [dispatch]);
+
+    const debouncedFetchData = useDebounce(fetchData, 800);
 
     const listViewChange = useCallback(
       (view: ListViewType) => {
@@ -64,7 +67,7 @@ export const WhiskyPageFilters = memo(
       (newSearch: string) => {
         dispatch(whiskyPageActions.setPage(1));
         dispatch(whiskyPageActions.setSearch(newSearch));
-        fetchData();
+        debouncedFetchData();
       },
       [dispatch]
     );

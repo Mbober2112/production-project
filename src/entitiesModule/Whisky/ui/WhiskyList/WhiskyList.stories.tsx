@@ -1,7 +1,10 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
-import { WhiskyType } from "entitiesModule/Whisky/model/types/whisky";
+import {
+  WhiskyCaskType,
+  WhiskyType,
+} from "entitiesModule/Whisky/model/types/whisky";
 import { Countries } from "entitiesModule/Country";
 import { ListViewType } from "shared/const/common";
 import DefaultImage from "shared/assets/tests/storybook.png";
@@ -18,6 +21,7 @@ const whiskyList = new Array(3).fill({
   alc: 40,
   raiting: 80,
   rates: 1,
+  casks: [WhiskyCaskType.BOURBON_CASK, WhiskyCaskType.SHERRY_CASK],
   createdAt: 123456654,
   updatedAt: 123456654,
 });

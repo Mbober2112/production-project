@@ -1,6 +1,9 @@
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 import { addCommentForWhisky } from "./addCommentForWhisky";
-import { WhiskyType } from "entitiesModule/Whisky/model/types/whisky";
+import {
+  WhiskyCaskType,
+  WhiskyType,
+} from "entitiesModule/Whisky/model/types/whisky";
 import { Countries } from "entitiesModule/Country";
 
 const date = Date.now();
@@ -29,6 +32,7 @@ const whiskyDetailsData = {
   alc: 40,
   raiting: 80,
   rates: 1,
+  casks: [WhiskyCaskType.BOURBON_CASK, WhiskyCaskType.SHERRY_CASK],
   createdAt: 123456789,
   updatedAt: 123456789,
 };

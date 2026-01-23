@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkConfig } from "app/providers/StoreProvider";
 import { Whisky } from "entitiesModule/Whisky/model/types/whisky";
+import { addQueryParams } from "shared/lib/url/addQueryParams/addQueryParams";
 import {
   getwhiskyPageLimit,
   getwhiskyPageOrder,
@@ -22,17 +23,19 @@ export const fetchWhiskyList = createAsyncThunk<
   const { page = 1 } = args;
   const limit = getwhiskyPageLimit(getState());
   const sort = getwhiskyPageSort(getState());
-  const sortOrder = getwhiskyPageOrder(getState());
-  const searchText = getwhiskyPageSearch(getState());
+  const order = getwhiskyPageOrder(getState());
+  const search = getwhiskyPageSearch(getState());
 
   try {
+    addQueryParams({ sort, order, search });
+
     const response = await extra.api.get<Whisky[]>("/whisky", {
       params: {
         _limit: limit,
         _page: page,
         _sort: sort,
-        _order: sortOrder,
-        q: searchText,
+        _order: order,
+        q: search,
       },
     });
 

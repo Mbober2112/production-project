@@ -1,6 +1,6 @@
 import { StateSchema } from "app/providers/StoreProvider";
 import { Countries } from "entitiesModule/Country";
-import { WhiskyType } from "../types/whisky";
+import { WhiskyCaskType, WhiskyType } from "../types/whisky";
 import { getWhiskyDetailsData } from "./whiskyDetailsSelectors";
 
 describe("getWhiskyDetailsData", () => {
@@ -20,6 +20,7 @@ describe("getWhiskyDetailsData", () => {
           alc: 46,
           raiting: 80,
           rates: 1,
+          casks: [WhiskyCaskType.BOURBON_CASK, WhiskyCaskType.SHERRY_CASK],
           createdAt: 123456654,
           updatedAt: 123456654,
         },
@@ -38,6 +39,7 @@ describe("getWhiskyDetailsData", () => {
       alc: 46,
       raiting: 80,
       rates: 1,
+      casks: [WhiskyCaskType.BOURBON_CASK, WhiskyCaskType.SHERRY_CASK],
       createdAt: 123456654,
       updatedAt: 123456654,
     });
