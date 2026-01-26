@@ -5,6 +5,8 @@ import { Whisky } from "entitiesModule/Whisky/model/types/whisky";
 import { WhiskyListItem } from "../WhiskyListItem/WhiskyListItem";
 import { ListViewType } from "shared/const/common";
 import { Skeleton } from "shared/ui/Skeleton/Sceleton";
+import { useTranslation } from "react-i18next";
+import { Text, TextAlign } from "shared/ui/Text/Text";
 
 interface WhiskyListProps {
   whiskyList: Whisky[];
@@ -20,6 +22,18 @@ export const WhiskyList = memo(
     viewType = ListViewType.LIST,
     whiskyList,
   }: WhiskyListProps) => {
+    const { t } = useTranslation("whisky");
+
+    if (!isLoading && !whiskyList.length) {
+      return (
+        <div
+          className={classNames(cls.whiskyList, {}, [className, cls[viewType]])}
+        >
+          <Text align={TextAlign.CENTER} title={`${t("nothigFound")}...`} />
+        </div>
+      );
+    }
+
     return (
       <div
         className={classNames(cls.whiskyList, {}, [className, cls[viewType]])}
@@ -56,5 +70,5 @@ export const WhiskyList = memo(
         )}
       </div>
     );
-  }
+  },
 );

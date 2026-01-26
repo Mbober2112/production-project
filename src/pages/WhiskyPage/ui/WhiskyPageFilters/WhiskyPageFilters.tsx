@@ -1,14 +1,17 @@
 import { WhiskySortField } from "entitiesModule/Whisky";
+import { WhiskyType } from "entitiesModule/Whisky/model/types/whisky";
 import { WhiskySortSelector } from "entitiesModule/Whisky/ui/WhiskySortSelector/WhiskySortSelector";
+import { WhiskyTypeTabs } from "entitiesModule/Whisky/ui/WhiskyTypeTabs/WhiskyTypeTabs";
 import {
   getwhiskyPageOrder,
   getwhiskyPageSearch,
   getwhiskyPageSort,
+  getwhiskyPageType,
   getwhiskyPageView,
 } from "pages/WhiskyPage/model/selectors/whiskyPageSelectors";
 import { fetchWhiskyList } from "pages/WhiskyPage/model/services/fetchWhiskyList/fetchWhiskyList";
 import { whiskyPageActions } from "pages/WhiskyPage/model/slices/whiskyPageSlice";
-import { memo, useCallback } from "react";
+import { memo, useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { ListViewType, SortOrder } from "shared/const/common";
@@ -16,6 +19,7 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useDebounce } from "shared/lib/hooks/useDebounce/useDebounce";
 import { Input } from "shared/ui/Input/Input";
+import { TabItem, Tabs } from "shared/ui/Tabs/Tabs";
 import { ListViewSwitcher } from "widgets/ListViewSwitcher";
 import cls from "./WhiskyPageFilters.module.scss";
 
@@ -31,6 +35,7 @@ export const WhiskyPageFilters = memo(
     const sort = useSelector(getwhiskyPageSort);
     const sortOrder = useSelector(getwhiskyPageOrder);
     const searchText = useSelector(getwhiskyPageSearch);
+    const selectedType = useSelector(getwhiskyPageType);
 
     const fetchData = useCallback(() => {
       dispatch(fetchWhiskyList({ page: 1, replace: true }));
@@ -42,7 +47,7 @@ export const WhiskyPageFilters = memo(
       (view: ListViewType) => {
         dispatch(whiskyPageActions.setView(view));
       },
-      [dispatch]
+      [dispatch],
     );
 
     const onChangeOrder = useCallback(
@@ -51,7 +56,7 @@ export const WhiskyPageFilters = memo(
         dispatch(whiskyPageActions.setOrder(newOrder));
         fetchData();
       },
-      [dispatch]
+      [dispatch],
     );
 
     const onChangeSort = useCallback(
@@ -60,7 +65,7 @@ export const WhiskyPageFilters = memo(
         dispatch(whiskyPageActions.setSort(newSort));
         fetchData();
       },
-      [dispatch]
+      [dispatch],
     );
 
     const onChangeSearch = useCallback(
@@ -69,7 +74,16 @@ export const WhiskyPageFilters = memo(
         dispatch(whiskyPageActions.setSearch(newSearch));
         debouncedFetchData();
       },
-      [dispatch]
+      [dispatch],
+    );
+
+    const onSelectWhiskyType = useCallback(
+      (type: WhiskyType) => {
+        dispatch(whiskyPageActions.setPage(1));
+        dispatch(whiskyPageActions.setType(type));
+        fetchData();
+      },
+      [dispatch],
     );
 
     return (
@@ -88,7 +102,11 @@ export const WhiskyPageFilters = memo(
           />
           <ListViewSwitcher onViewChange={listViewChange} view={listView} />
         </div>
+        <WhiskyTypeTabs
+          selectedType={selectedType}
+          onSelectType={onSelectWhiskyType}
+        />
       </div>
     );
-  }
+  },
 );

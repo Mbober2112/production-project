@@ -1,6 +1,7 @@
 import { Countries } from "entitiesModule/Country";
 
 export enum WhiskyType {
+  ALL = "all",
   SINGLE_MALT = "Single Malt",
   BLENDED = "Blended",
   BLENDED_MALT = "Blended Malt",

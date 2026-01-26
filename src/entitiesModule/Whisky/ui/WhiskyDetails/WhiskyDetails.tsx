@@ -55,12 +55,17 @@ export const WhiskyDetails = memo(({ className, id }: WhiskyDetailsProps) => {
         <div className={cls.mainInfoWrapper}>
           <Skeleton width={250} height={250} border={"20%"} />
           <div className={cls.mainInfo}>
-            <Skeleton height={28} width={350} />
+            <Skeleton height={28} width={250} />
             {new Array(6).fill(0).map((el, index) => (
               <div key={index} className={cls.info}>
                 <Skeleton width={200} height={24} />
               </div>
             ))}
+          </div>
+          <div className={cls.raitingInfo}>
+            <Skeleton height={28} width={100} />
+            <Skeleton height={24} width={140} />
+            <Skeleton height={24} width={140} />
           </div>
         </div>
       </div>
@@ -119,11 +124,11 @@ export const WhiskyDetails = memo(({ className, id }: WhiskyDetailsProps) => {
                     i18n.language === "ru"
                       ? TextPluralRu(
                           whiskyDetails?.statedAge,
-                          RU_AGE_FORMS["year"]
+                          RU_AGE_FORMS["year"],
                         )
                       : TextPluralEn(
                           whiskyDetails?.statedAge,
-                          EN_AGE_FORMS["year"]
+                          EN_AGE_FORMS["year"],
                         )
                   }`}
                 />

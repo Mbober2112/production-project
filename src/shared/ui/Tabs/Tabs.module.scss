@@ -1,0 +1,17 @@
+.tabs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tab {
+  cursor: pointer;
+  padding: 4px 8px;
+  background-color: var(--bg-blue-color);
+  border-radius: 6px;
+  color: var(--primary-color-inverted);
+}
+
+.selected {
+  background-color: var(--bg-color-inverted);
+}

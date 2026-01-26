@@ -7,6 +7,7 @@ import { StateSchema } from "app/providers/StoreProvider";
 import {
   Whisky,
   WhiskySortField,
+  WhiskyType,
 } from "entitiesModule/Whisky/model/types/whisky";
 import { ListViewType, SortOrder } from "shared/const/common";
 import { WHISKY_LIST_VIEW_KEY } from "shared/const/localstorage";
@@ -35,6 +36,7 @@ const whiskyPageSlice = createSlice({
     sort: WhiskySortField.TITLE,
     search: "",
     order: "asc",
+    type: WhiskyType.ALL,
   }),
   reducers: {
     setView: (state, action: PayloadAction<ListViewType>) => {
@@ -52,6 +54,9 @@ const whiskyPageSlice = createSlice({
     },
     setSearch: (state, action: PayloadAction<string>) => {
       state.search = action.payload;
+    },
+    setType: (state, action: PayloadAction<WhiskyType>) => {
+      state.type = action.payload;
     },
     initState: (state) => {
       state.view = localStorage.getItem(WHISKY_LIST_VIEW_KEY) as ListViewType;
