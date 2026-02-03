@@ -10,6 +10,7 @@ type HTMLInputProps = Omit<
 interface InputProps extends HTMLInputProps {
   className?: string;
   value?: string;
+  canClear?: boolean;
   onChange?: (value: string) => void;
 }
 
@@ -20,6 +21,7 @@ export const Input = memo(
     onChange,
     type = "text",
     placeholder = "",
+    canClear = false,
     ...otherProps
   }: InputProps) => {
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -38,7 +40,12 @@ export const Input = memo(
           onChange={onChangeHandler}
           className={cls.input}
         ></input>
+        {value && canClear && (
+          <button className={cls.clearBtn} onClick={() => onChange?.("")}>
+            ✕
+          </button>
+        )}
       </div>
     );
-  }
+  },
 );

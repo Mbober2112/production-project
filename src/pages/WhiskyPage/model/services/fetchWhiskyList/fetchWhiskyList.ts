@@ -1,8 +1,13 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkConfig } from "app/providers/StoreProvider";
-import { Whisky, WhiskyType } from "entitiesModule/Whisky/model/types/whisky";
+import {
+  Whisky,
+  WhiskyCaskType,
+  WhiskyType,
+} from "entitiesModule/Whisky/model/types/whisky";
 import { addQueryParams } from "shared/lib/url/addQueryParams/addQueryParams";
 import {
+  getwhiskyPageCaskType,
   getwhiskyPageLimit,
   getwhiskyPageOrder,
   getwhiskyPageSearch,
@@ -27,9 +32,10 @@ export const fetchWhiskyList = createAsyncThunk<
   const order = getwhiskyPageOrder(getState());
   const search = getwhiskyPageSearch(getState());
   const type = getwhiskyPageType(getState());
+  const casks = getwhiskyPageCaskType(getState());
 
   try {
-    addQueryParams({ sort, order, search, type });
+    addQueryParams({ sort, order, search, type, casks_like: casks });
 
     const response = await extra.api.get<Whisky[]>("/whisky", {
       params: {
@@ -39,6 +45,7 @@ export const fetchWhiskyList = createAsyncThunk<
         _order: order,
         q: search,
         type: type === WhiskyType.ALL ? undefined : type,
+        casks_like: casks === WhiskyCaskType.ALL ? undefined : casks,
       },
     });
 

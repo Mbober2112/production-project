@@ -1,8 +1,13 @@
 import { WhiskySortField } from "entitiesModule/Whisky";
-import { WhiskyType } from "entitiesModule/Whisky/model/types/whisky";
+import {
+  WhiskyCaskType,
+  WhiskyType,
+} from "entitiesModule/Whisky/model/types/whisky";
+import { WhiskyCaskTypeTabs } from "entitiesModule/Whisky/ui/WhiskyCaskTypeTabs/WhiskyCaskTypeTabs";
 import { WhiskySortSelector } from "entitiesModule/Whisky/ui/WhiskySortSelector/WhiskySortSelector";
 import { WhiskyTypeTabs } from "entitiesModule/Whisky/ui/WhiskyTypeTabs/WhiskyTypeTabs";
 import {
+  getwhiskyPageCaskType,
   getwhiskyPageOrder,
   getwhiskyPageSearch,
   getwhiskyPageSort,
@@ -36,6 +41,7 @@ export const WhiskyPageFilters = memo(
     const sortOrder = useSelector(getwhiskyPageOrder);
     const searchText = useSelector(getwhiskyPageSearch);
     const selectedType = useSelector(getwhiskyPageType);
+    const selectedCaskType = useSelector(getwhiskyPageCaskType);
 
     const fetchData = useCallback(() => {
       dispatch(fetchWhiskyList({ page: 1, replace: true }));
@@ -86,11 +92,21 @@ export const WhiskyPageFilters = memo(
       [dispatch],
     );
 
+    const onSelectWhiskyCaskType = useCallback(
+      (type: WhiskyCaskType) => {
+        dispatch(whiskyPageActions.setPage(1));
+        dispatch(whiskyPageActions.setCaskType(type));
+        fetchData();
+      },
+      [dispatch],
+    );
+
     return (
       <div className={classNames(cls.whiskyPageFilters, {}, [className])}>
         <Input
           placeholder={t("search")}
           value={searchText}
+          canClear
           onChange={onChangeSearch}
         />
         <div className={cls.sortWrapper}>
@@ -105,6 +121,10 @@ export const WhiskyPageFilters = memo(
         <WhiskyTypeTabs
           selectedType={selectedType}
           onSelectType={onSelectWhiskyType}
+        />
+        <WhiskyCaskTypeTabs
+          selectedType={selectedCaskType}
+          onSelectType={onSelectWhiskyCaskType}
         />
       </div>
     );

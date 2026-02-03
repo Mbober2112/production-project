@@ -1,6 +1,7 @@
 .inputWrapper {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .input {
@@ -14,5 +15,21 @@
   &:focus {
     outline: none;
     box-shadow: none;
+  }
+}
+
+.clearBtn {
+  position: absolute;
+  right: 8px;
+  top: 38px;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+
+  &:hover {
+    color: var(--text-hover-color);
   }
 }

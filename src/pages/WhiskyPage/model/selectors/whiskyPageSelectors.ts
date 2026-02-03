@@ -1,6 +1,9 @@
 import { StateSchema } from "app/providers/StoreProvider";
 import { WhiskySortField } from "entitiesModule/Whisky";
-import { WhiskyType } from "entitiesModule/Whisky/model/types/whisky";
+import {
+  WhiskyCaskType,
+  WhiskyType,
+} from "entitiesModule/Whisky/model/types/whisky";
 import { ListViewType } from "shared/const/common";
 
 export const getWhiskyPageIsLoading = (state: StateSchema) =>
@@ -35,3 +38,6 @@ export const getwhiskyPageSearch = (state: StateSchema) =>
 
 export const getwhiskyPageType = (state: StateSchema) =>
   state.whiskyPage?.type || WhiskyType.ALL;
+
+export const getwhiskyPageCaskType = (state: StateSchema) =>
+  state.whiskyPage?.caskType || WhiskyCaskType.ALL;

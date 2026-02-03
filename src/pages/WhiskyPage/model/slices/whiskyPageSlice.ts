@@ -6,6 +6,7 @@ import {
 import { StateSchema } from "app/providers/StoreProvider";
 import {
   Whisky,
+  WhiskyCaskType,
   WhiskySortField,
   WhiskyType,
 } from "entitiesModule/Whisky/model/types/whisky";
@@ -19,7 +20,7 @@ const whiskyAdapter = createEntityAdapter<Whisky>({
 });
 
 export const getWhisky = whiskyAdapter.getSelectors<StateSchema>(
-  (state) => state.whiskyPage || whiskyAdapter.getInitialState()
+  (state) => state.whiskyPage || whiskyAdapter.getInitialState(),
 );
 
 const whiskyPageSlice = createSlice({
@@ -37,6 +38,7 @@ const whiskyPageSlice = createSlice({
     search: "",
     order: "asc",
     type: WhiskyType.ALL,
+    caskType: WhiskyCaskType.ALL,
   }),
   reducers: {
     setView: (state, action: PayloadAction<ListViewType>) => {
@@ -57,6 +59,9 @@ const whiskyPageSlice = createSlice({
     },
     setType: (state, action: PayloadAction<WhiskyType>) => {
       state.type = action.payload;
+    },
+    setCaskType: (state, action: PayloadAction<WhiskyCaskType>) => {
+      state.caskType = action.payload;
     },
     initState: (state) => {
       state.view = localStorage.getItem(WHISKY_LIST_VIEW_KEY) as ListViewType;

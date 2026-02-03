@@ -1,7 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkConfig } from "app/providers/StoreProvider";
 import { WhiskySortField } from "entitiesModule/Whisky";
-import { WhiskyType } from "entitiesModule/Whisky/model/types/whisky";
+import {
+  WhiskyCaskType,
+  WhiskyType,
+} from "entitiesModule/Whisky/model/types/whisky";
 import { SortOrder } from "shared/const/common";
 import { getwhiskyPageInited } from "../../selectors/whiskyPageSelectors";
 import { whiskyPageActions } from "../../slices/whiskyPageSlice";
@@ -20,6 +23,7 @@ export const initWhiskyPage = createAsyncThunk<
     const orderFromUrl = searchParams.get("order") as SortOrder;
     const searchFromUrl = searchParams.get("search");
     const typeFromUrl = searchParams.get("type") as WhiskyType;
+    const caskTypeFromUrl = searchParams.get("casks_like") as WhiskyCaskType;
 
     if (sortFromUrl) {
       dispatch(whiskyPageActions.setSort(sortFromUrl));
@@ -35,6 +39,10 @@ export const initWhiskyPage = createAsyncThunk<
 
     if (typeFromUrl) {
       dispatch(whiskyPageActions.setType(typeFromUrl));
+    }
+
+    if (caskTypeFromUrl) {
+      dispatch(whiskyPageActions.setCaskType(caskTypeFromUrl));
     }
 
     dispatch(whiskyPageActions.initState());

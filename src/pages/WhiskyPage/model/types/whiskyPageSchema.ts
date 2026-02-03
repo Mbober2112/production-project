@@ -1,6 +1,10 @@
 import { EntityState } from "@reduxjs/toolkit";
 import { WhiskySortField } from "entitiesModule/Whisky";
-import { Whisky, WhiskyType } from "entitiesModule/Whisky/model/types/whisky";
+import {
+  Whisky,
+  WhiskyCaskType,
+  WhiskyType,
+} from "entitiesModule/Whisky/model/types/whisky";
 import { ListViewType, SortOrder } from "shared/const/common";
 
 export interface WhiskyPageSchema extends EntityState<Whisky> {
@@ -17,4 +21,5 @@ export interface WhiskyPageSchema extends EntityState<Whisky> {
   sort: WhiskySortField;
   search: string;
   type: WhiskyType;
+  caskType: WhiskyCaskType;
 }

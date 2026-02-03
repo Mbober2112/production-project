@@ -10,9 +10,11 @@ export enum WhiskyType {
 }
 
 export enum WhiskyCaskType {
+  ALL = "all",
   BOURBON_CASK = "Bourbon",
   SHERRY_CASK = "Sherry",
   RUM_CASK = "Rum",
+  PORT_CASK = "Port",
 }
 
 export enum WhiskySortField {
